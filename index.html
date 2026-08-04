@@ -16,10 +16,11 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' style='font-weight:bold'>✦</text></svg>">
 
     <style>
-        /* ===== FONT ===== */
+        /* ==========================================
+                   GLOBAL & RESET
+                   ========================================== */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
-        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +28,8 @@
             font-family: 'Inter', 'Arial', sans-serif;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             min-height: 100vh;
             overflow: hidden;
@@ -42,7 +44,9 @@
             inset: 0;
         }
 
-        /* ===== BINTANG BACKGROUND ===== */
+        /* ==========================================
+                   BINTANG BACKGROUND
+                   ========================================== */
         #stars {
             position: fixed;
             inset: 0;
@@ -52,135 +56,206 @@
         }
         .star {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
             border-radius: 50%;
+            background: white;
             animation: twinkle var(--duration) infinite alternate;
             opacity: 0.3;
         }
         @keyframes twinkle {
-            0% { opacity: 0.1; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.2); }
+            0% {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
         }
 
-        /* ===== CARD ===== */
+        /* ==========================================
+                   CARD UTAMA
+                   ========================================== */
         .card {
             position: relative;
             z-index: 1;
             width: 380px;
             max-width: 92%;
-            padding: 32px 28px 28px;
+            padding: 28px 24px 24px;
             text-align: center;
-            background: rgba(20, 20, 20, 0.75);
+            background: rgba(18, 18, 18, 0.8);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 28px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            animation: fadeUp 1s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            animation: fadeUp 0.8s ease-out;
+            max-height: 96vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .card::-webkit-scrollbar {
+            display: none;
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* ===== AVATAR ===== */
+        /* ==========================================
+                   AVATAR
+                   ========================================== */
         .avatar-wrapper {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.03);
             display: block;
             margin: 0 auto;
             transition: 0.3s;
         }
         .avatar:hover {
             transform: scale(1.03);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
-        /* ===== USERNAME ===== */
+        /* ==========================================
+                   USERNAME & BIO
+                   ========================================== */
         .username {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: #fff;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
-
-        /* ===== BIO ===== */
         .bio {
-            font-size: 15px;
-            color: #aaa;
-            margin-bottom: 18px;
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 12px;
             font-weight: 400;
         }
 
-        /* ===== LAST SEEN ===== */
+        /* ==========================================
+                   LAST SEEN
+                   ========================================== */
         .lastseen {
             font-size: 12px;
-            color: #666;
-            margin-bottom: 22px;
+            color: #555;
+            margin-bottom: 18px;
             letter-spacing: 0.3px;
         }
         .lastseen span {
-            color: #888;
+            color: #777;
         }
 
-        /* ===== BUTTONS ===== */
+        /* ==========================================
+                   TAB
+                   ========================================== */
+        .tabs {
+            display: flex;
+            gap: 6px;
+            margin: 0 0 18px;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 40px;
+            padding: 4px;
+        }
+        .tab-btn {
+            padding: 7px 18px;
+            border: none;
+            border-radius: 30px;
+            background: transparent;
+            color: #777;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            flex: 1;
+        }
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .tab-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ==========================================
+                   KONTEN TAB
+                   ========================================== */
+        .tab-content {
+            display: none;
+            animation: fadeUp 0.4s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ==========================================
+                   TOMBOL
+                   ========================================== */
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 24px;
+            gap: 8px;
+            margin-bottom: 18px;
         }
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 13px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 14px;
-            color: #e0e0e0;
+            color: #ddd;
             font-weight: 600;
             font-size: 14px;
             cursor: pointer;
             transition: 0.25s ease;
             text-decoration: none;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
         }
         .btn:active {
             transform: scale(0.97);
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.1);
         }
         .btn .icon {
-            font-size: 18px;
+            font-size: 17px;
         }
-        .btn-copy:hover {
-            border-color: rgba(255, 255, 255, 0.25);
+        .btn-link {
+            color: #fff;
+        }
+        .btn-link:hover {
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* ===== STATS ===== */
+        /* ==========================================
+                   STATISTIK
+                   ========================================== */
         .stats {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px 16px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            font-size: 13px;
-            color: #888;
+            gap: 6px 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 12px;
+            color: #777;
         }
         .stats span {
             display: inline-flex;
@@ -188,28 +263,44 @@
             gap: 4px;
         }
         .stats .badge {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.05);
             padding: 2px 12px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 11px;
             font-weight: 600;
-            color: #ccc;
+            color: #bbb;
             letter-spacing: 0.3px;
         }
 
-        /* ===== TOAST ===== */
+        /* ==========================================
+                   EMBED (Spotify / dll)
+                   ========================================== */
+        .embed-wrapper {
+            margin: 12px 0 6px;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .embed-wrapper iframe {
+            width: 100%;
+            border: none;
+            border-radius: 14px;
+        }
+
+        /* ==========================================
+                   TOAST NOTIF
+                   ========================================== */
         #toast {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: rgba(20, 20, 20, 0.9);
+            background: rgba(16, 16, 16, 0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 10px 24px;
             border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             font-size: 13px;
             color: #eee;
             opacity: 0;
@@ -217,11 +308,22 @@
             pointer-events: none;
             z-index: 99;
             white-space: nowrap;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
         #toast.show {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
+        }
+
+        /* ==========================================
+                   SCROLLBAR HIDE (opsional)
+                   ========================================== */
+        .card {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .card::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -232,43 +334,81 @@
 
     <!-- ===== CARD ===== -->
     <div class="card">
-        <!-- Avatar -->
+
+        <!-- AVATAR -->
         <div class="avatar-wrapper">
             <img class="avatar"
-                 src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
-                 alt="Avatar THOM"
-                 onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=100&background=1a1a1a&color=fff&bold=true'">
+            src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
+            alt="Avatar THOM"
+            onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=96&background=1a1a1a&color=fff&bold=true'">
         </div>
 
-        <!-- Username -->
+        <!-- USERNAME & BIO -->
         <div class="username">𝗧𝗛𝗢𝗠</div>
-
-        <!-- Bio -->
         <div class="bio">✦ The less you know, the better. ✦</div>
 
-        <!-- Last Seen -->
+        <!-- LAST SEEN -->
         <div class="lastseen">🕒 last seen <span id="lastSeen">just now</span></div>
 
-        <!-- Tombol -->
-        <div class="buttons">
-            <button class="btn btn-copy" data-copy="thom_discord">
-                <span class="icon">🎮</span> Copy Discord
-            </button>
-            <button class="btn btn-copy" data-copy="thom_tiktok">
-                <span class="icon">💎</span> Copy TikTok
-            </button>
-            <button class="btn btn-copy" data-copy="https://guns.lol/thom">
-                <span class="icon">🔗</span> Copy Profile Link
-            </button>
+        <!-- ===== TAB ===== -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="profile">👤 Profil</button>
+            <button class="tab-btn" data-tab="links">🔗 Link</button>
         </div>
 
-        <!-- Statistik -->
-        <div class="stats">
-            <span>📍 <span id="location">Lithuania</span></span>
-            <span>🆔 UID <span id="uid">1,850,070</span></span>
-            <span>👁️ Profile Views <span id="views">0</span></span>
-            <span class="badge">🏅 HypeSquad Bravery</span>
+        <!-- ===== TAB 1: PROFIL ===== -->
+        <div id="profile" class="tab-content active">
+
+            <div class="buttons">
+                <button class="btn btn-copy" data-copy="thom_discord">
+                    <span class="icon">🎮</span> Copy Discord
+                </button>
+                <button class="btn btn-copy" data-copy="thom_tiktok">
+                    <span class="icon">💎</span> Copy TikTok
+                </button>
+                <button class="btn btn-copy" data-copy="https://guns.lol/thom">
+                    <span class="icon">🔗</span> Copy Profile Link
+                </button>
+            </div>
+
+            <div class="stats">
+                <span>📍 <span id="location">Lithuania</span></span>
+                <span>🆔 UID <span id="uid">1,850,070</span></span>
+                <span>👁️ Views <span id="views">0</span></span>
+                <span class="badge">🏅 HypeSquad Bravery</span>
+            </div>
+
         </div>
+
+        <!-- ===== TAB 2: LINK ===== -->
+        <div id="links" class="tab-content">
+
+            <div class="buttons">
+                <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-link">
+                    <span class="icon">🎮</span> Join Discord
+                </a>
+                <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener" class="btn btn-link">
+                    <span class="icon">💎</span> TikTok
+                </a>
+                <a href="https://instagram.com/thom_id" target="_blank" rel="noopener" class="btn btn-link">
+                    <span class="icon">📸</span> Instagram
+                </a>
+                <a href="https://youtube.com/@thom_id" target="_blank" rel="noopener" class="btn btn-link">
+                    <span class="icon">▶️</span> YouTube
+                </a>
+            </div>
+
+            <!-- EMBED SPOTIFY (contoh) -->
+            <div class="embed-wrapper">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3Z1lP8UwIGF0tQR7Fkf9nE?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <div style="margin-top:12px; font-size:11px; color:#444;">
+                ✦ support by buying me a coffee ✦
+            </div>
+
+        </div>
+
     </div>
 
     <!-- ===== TOAST ===== -->
@@ -276,7 +416,7 @@
 
     <script>
         // =============================================
-        // 1. BINTANG (Partikel halus)
+        // 1. BINTANG
         // =============================================
         (function createStars() {
             const container = document.getElementById('stars');
@@ -287,25 +427,26 @@
                 star.style.top = Math.random() * 100 + '%';
                 star.style.setProperty('--duration', (2 + Math.random() * 3) + 's');
                 star.style.animationDelay = (Math.random() * 3) + 's';
-                star.style.width = (1 + Math.random() * 2) + 'px';
-                star.style.height = star.style.width;
+                const size = 1 + Math.random() * 2;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
                 container.appendChild(star);
             }
         })();
 
         // =============================================
-        // 2. LAST SEEN (Otomatis)
+        // 2. LAST SEEN
         // =============================================
         function updateLastSeen() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            document.getElementById('lastSeen').textContent = `today at ${hours}:${minutes}`;
+            document.getElementById('lastSeen').textContent = 'today at ' + hours + ':' + minutes;
         }
         updateLastSeen();
 
         // =============================================
-        // 3. PROFILE VIEWS (Pakai localStorage)
+        // 3. PROFILE VIEWS (localStorage)
         // =============================================
         (function updateViews() {
             let views = parseInt(localStorage.getItem('thom_views') || '0');
@@ -317,47 +458,86 @@
         // =============================================
         // 4. TOMBOL COPY + TOAST
         // =============================================
-        const toast = document.getElementById('toast');
+        var toast = document.getElementById('toast');
 
-        document.querySelectorAll('.btn-copy').forEach(btn => {
+        document.querySelectorAll('.btn-copy').forEach(function(btn) {
             btn.addEventListener('click', function() {
-                const text = this.dataset.copy;
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast('✅ Tersalin: ' + text);
-                }).catch(() => {
-                    // Fallback
-                    const area = document.createElement('textarea');
-                    area.value = text;
-                    document.body.appendChild(area);
-                    area.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(area);
-                    showToast('✅ Tersalin: ' + text);
-                });
+                var text = this.dataset.copy;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text).then(function() {
+                        showToast('✅ Tersalin: ' + text);
+                    }).catch(function() {
+                        fallbackCopy(text);
+                    });
+                } else {
+                    fallbackCopy(text);
+                }
             });
         });
+
+        function fallbackCopy(text) {
+            var area = document.createElement('textarea');
+            area.value = text;
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand('copy');
+            document.body.removeChild(area);
+            showToast('✅ Tersalin: ' + text);
+        }
 
         function showToast(msg) {
             toast.textContent = msg;
             toast.classList.add('show');
             clearTimeout(toast._hide);
-            toast._hide = setTimeout(() => {
+            toast._hide = setTimeout(function() {
                 toast.classList.remove('show');
             }, 2000);
         }
 
         // =============================================
-        // 5. CEGAH SCROLL, ZOOM, DRAG
+        // 5. TAB SWITCHING
         // =============================================
-        document.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
-        document.addEventListener('gesturestart', e => e.preventDefault());
-        document.addEventListener('dragstart', e => e.preventDefault());
-        window.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+        document.querySelectorAll('.tab-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Hapus active dari semua tab-btn & tab-content
+                document.querySelectorAll('.tab-btn').forEach(function(b) {
+                    b.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(function(c) {
+                    c.classList.remove('active');
+                });
+
+                // Aktifkan yg diklik
+                this.classList.add('active');
+                var target = document.getElementById(this.dataset.tab);
+                if (target) target.classList.add('active');
+            });
+        });
 
         // =============================================
-        // 6. KONSOLE (Buat gaya)
+        // 6. CEGAH SCROLL, ZOOM, DRAG
+        // =============================================
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        window.addEventListener('wheel', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+
+        // =============================================
+        // 7. KONSOLE (gaya)
         // =============================================
         console.log('%c✦ THOM | guns.lol style ✦', 'font-size:16px; font-weight:bold; color:white; background:#0a0a0a; padding:8px 16px; border-radius:8px; border:1px solid #333;');
     </script>
+
 </body>
-</html>
+    </html>
