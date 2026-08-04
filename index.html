@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>THOM</title>
 
@@ -16,16 +17,28 @@
     font-family:Poppins,sans-serif;
 }
 
+html{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    touch-action:none;
+    overscroll-behavior:none;
+}
+
 body{
+    width:100%;
     height:100vh;
     overflow:hidden;
     background:#000;
     color:white;
     display:flex;
-    justify-content:center;
-    align-items:center;
-}
 
+    position:fixed;
+    inset:0;
+
+    touch-action:none;
+    overscroll-behavior:none;
+}
 
 body::before{
     content:"";
@@ -51,7 +64,6 @@ body::before{
     animation:bgGlow 5s infinite alternate;
 }
 
-
 @keyframes bgGlow{
 from{
 filter:blur(3px);
@@ -64,10 +76,14 @@ opacity:.65;
 }
 }
 
-
-
 .card{
-    position:relative;
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
 
     width:360px;
     padding:30px;
@@ -86,23 +102,22 @@ opacity:.65;
     0 0 40px rgba(255,255,255,.15);
 
     animation:fade 1.5s;
+
+    z-index:2;
 }
 
-
-
 @keyframes fade{
+
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translate(-50%,-40%);
 }
 
 to{
 opacity:1;
-transform:none;
+transform:translate(-50%,-50%);
 }
 }
-
-
 
 .avatar{
 
@@ -129,11 +144,7 @@ transform:none;
     0 0 25px rgba(255,255,255,.5);
 
     animation:textGlow 3s linear infinite;
-}
-
-
-
-.name{
+}.name{
 
     margin-top:15px;
 
@@ -145,7 +156,6 @@ transform:none;
 
     color:transparent;
 
-
     background:
     linear-gradient(
     90deg,
@@ -155,19 +165,13 @@ transform:none;
     #ffffff
     );
 
-
     background-size:200%;
 
-
     -webkit-background-clip:text;
-
     background-clip:text;
-
 
     animation:textGlow 3s linear infinite;
 }
-
-
 
 .bio{
 
@@ -176,18 +180,12 @@ transform:none;
     color:#ccc;
 
     font-size:14px;
-
 }
-
-
 
 .buttons{
 
     margin-top:25px;
-
 }
-
-
 
 .buttons a{
 
@@ -197,14 +195,11 @@ transform:none;
 
     padding:13px;
 
-
     text-decoration:none;
 
     font-weight:800;
 
-
     color:transparent;
-
 
     background:
     linear-gradient(
@@ -214,40 +209,26 @@ transform:none;
     #ffffff
     );
 
-
     background-size:200%;
 
-
     -webkit-background-clip:text;
-
     background-clip:text;
-
 
     animation:textGlow 3s linear infinite;
 
-
     background-color:rgba(255,255,255,.1);
-
 
     border:1px solid rgba(255,255,255,.25);
 
-
     border-radius:12px;
-
 
     transition:.3s;
 }
 
-
-
 .buttons a:hover{
 
-    box-shadow:
-    0 0 20px white;
-
+    box-shadow:0 0 20px white;
 }
-
-
 
 @keyframes textGlow{
 
@@ -261,48 +242,121 @@ background-position:200%;
 
 }
 
+/* Emoji jatuh */
+
+.fall{
+
+    position:fixed;
+
+    top:-50px;
+
+    pointer-events:none;
+
+    user-select:none;
+
+    z-index:1;
+
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+from{
+
+    transform:translateY(-50px) rotate(0deg);
+
+    opacity:1;
+}
+
+to{
+
+    transform:translateY(110vh) rotate(360deg);
+
+    opacity:0;
+}
+
+}
+
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="card">
 
-
-<img class="avatar" src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png">
-
+<img class="avatar"
+src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png">
 
 <div class="name">
 𝗧𝗛𝗢𝗠
 </div>
 
-
 <div class="bio">
 The less you know, the better.
 </div>
 
-
 <div class="buttons">
-
 
 <a href="https://discord.gg/GeXwAPfUY">
 🎮 Discord
 </a>
 
-
 <a href="https://tiktok.com/@thom_id">
-🎵 TikTok
+💎 TikTok
 </a>
 
-
 </div>
 
+</div><script>
 
-</div>
+function createEmoji(){
 
+    const emoji = document.createElement("div");
+
+    emoji.className = "fall";
+
+    emoji.innerHTML = "🜲";
+
+    emoji.style.left = Math.random() * window.innerWidth + "px";
+
+    emoji.style.fontSize = (18 + Math.random() * 20) + "px";
+
+    emoji.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(emoji);
+
+    setTimeout(function(){
+        emoji.remove();
+    },6000);
+
+}
+
+setInterval(() => {
+    for(let i = 0; i < 5; i++){
+        createEmoji();
+    }
+}, 100);
+/* Mencegah scroll */
+document.addEventListener("touchmove", function(e){
+    e.preventDefault();
+}, { passive:false });
+
+/* Mencegah zoom gesture */
+document.addEventListener("gesturestart", function(e){
+    e.preventDefault();
+});
+
+/* Mencegah drag */
+document.addEventListener("dragstart", function(e){
+    e.preventDefault();
+});
+
+/* Mencegah scroll dengan mouse */
+window.addEventListener("wheel", function(e){
+    e.preventDefault();
+}, { passive:false });
+
+</script>
 
 </body>
 </html>
