@@ -1,362 +1,360 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>THOM</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Poppins,sans-serif;
-}
-
-html{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    touch-action:none;
-    overscroll-behavior:none;
-}
-
-body{
-    width:100%;
-    height:100vh;
-    overflow:hidden;
-    background:#000;
-    color:white;
-    display:flex;
-
-    position:fixed;
-    inset:0;
-
-    touch-action:none;
-    overscroll-behavior:none;
-}
-
-body::before{
-    content:"";
-    position:absolute;
-    inset:-20px;
-
-    background:
-    radial-gradient(
-    circle at center,
-    rgba(255,255,255,.25),
-    rgba(0,0,0,.85)
-    ),
-    url("https://cdn.phototourl.com/free/2026-08-04-d6f9b2fe-ed73-4dee-bf3a-8319470183c7.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-    filter:blur(3px);
-    opacity:.55;
-
-    transform:scale(1.08);
-
-    animation:bgGlow 5s infinite alternate;
-}
-
-@keyframes bgGlow{
-from{
-filter:blur(3px);
-opacity:.45;
-}
-
-to{
-filter:blur(1px);
-opacity:.65;
-}
-}
-
-.card{
-
-    position:fixed;
-
-    top:50%;
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:360px;
-    padding:30px;
-
-    text-align:center;
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.2);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:20px;
-
-    box-shadow:
-    0 0 40px rgba(255,255,255,.15);
-
-    animation:fade 1.5s;
-
-    z-index:2;
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:translate(-50%,-40%);
-}
-
-to{
-opacity:1;
-transform:translate(-50%,-50%);
-}
-}
-
-.avatar{
-
-    width:120px;
-    height:120px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:3px solid transparent;
-
-    background:
-    linear-gradient(
-    90deg,
-    #ffffff,
-    #000000,
-    #ffffff
-    );
-
-    background-size:200%;
-
-    box-shadow:
-    0 0 25px rgba(255,255,255,.5);
-
-    animation:textGlow 3s linear infinite;
-}.name{
-
-    margin-top:15px;
-
-    font-size:32px;
-
-    font-weight:800;
-
-    letter-spacing:3px;
-
-    color:transparent;
-
-    background:
-    linear-gradient(
-    90deg,
-    #ffffff,
-    #ff0000,
-    #000000,
-    #ffffff
-    );
-
-    background-size:200%;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    animation:textGlow 3s linear infinite;
-}
-
-.bio{
-
-    margin-top:10px;
-
-    color:#ccc;
-
-    font-size:14px;
-}
-
-.buttons{
-
-    margin-top:25px;
-}
-
-.buttons a{
-
-    display:block;
-
-    margin:12px 0;
-
-    padding:13px;
-
-    text-decoration:none;
-
-    font-weight:800;
-
-    color:transparent;
-
-    background:
-    linear-gradient(
-    90deg,
-    #ffffff,
-    #000000,
-    #ffffff
-    );
-
-    background-size:200%;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    animation:textGlow 3s linear infinite;
-
-    background-color:rgba(255,255,255,.1);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:12px;
-
-    transition:.3s;
-}
-
-.buttons a:hover{
-
-    box-shadow:0 0 20px white;
-}
-
-@keyframes textGlow{
-
-0%{
-background-position:0%;
-}
-
-100%{
-background-position:200%;
-}
-
-}
-
-/* Emoji jatuh */
-
-.fall{
-
-    position:fixed;
-
-    top:-50px;
-
-    pointer-events:none;
-
-    user-select:none;
-
-    z-index:1;
-
-    animation:fall linear forwards;
-}
-
-@keyframes fall{
-
-from{
-
-    transform:translateY(-50px) rotate(0deg);
-
-    opacity:1;
-}
-
-to{
-
-    transform:translateY(110vh) rotate(360deg);
-
-    opacity:0;
-}
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THOM</title>
+
+    <!-- SEO & Social Sharing -->
+    <meta name="description" content="The less you know, the better.">
+    <meta property="og:title" content="THOM">
+    <meta property="og:description" content="The less you know, the better.">
+    <meta property="og:image" content="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png">
+    <meta property="og:url" content="">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' style='font-weight:bold'>✦</text></svg>">
+
+    <style>
+        /* ===== FONT ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Arial', sans-serif;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            touch-action: none;
+            overscroll-behavior: none;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+            color: white;
+            display: flex;
+            position: fixed;
+            inset: 0;
+            touch-action: none;
+            overscroll-behavior: none;
+        }
+
+        /* ===== BACKGROUND ===== */
+        body::before {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            background:
+                radial-gradient(circle at center, rgba(255, 255, 255, .25), rgba(0, 0, 0, .85)),
+                url("https://cdn.phototourl.com/free/2026-08-04-d6f9b2fe-ed73-4dee-bf3a-8319470183c7.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(3px);
+            opacity: .55;
+            transform: scale(1.08);
+            animation: bgGlow 5s infinite alternate;
+        }
+
+        @keyframes bgGlow {
+            from {
+                filter: blur(3px);
+                opacity: .45;
+            }
+            to {
+                filter: blur(1px);
+                opacity: .65;
+            }
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            max-width: 92%;
+            padding: 30px 24px;
+            text-align: center;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, .15);
+            animation: fade 1.5s ease-out;
+            z-index: 2;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* ===== AVATAR ===== */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+            background: linear-gradient(90deg, #ffffff, #000000, #ffffff);
+            background-size: 200%;
+            box-shadow: 0 0 25px rgba(255, 255, 255, .5);
+            animation: textGlow 3s linear infinite;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ===== NAME ===== */
+        .name {
+            margin-top: 15px;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: transparent;
+            background: linear-gradient(90deg, #ffffff, #ff0000, #000000, #ffffff);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textGlow 3s linear infinite;
+        }
+
+        /* ===== BIO ===== */
+        .bio {
+            margin-top: 10px;
+            color: #ccc;
+            font-size: 14px;
+            cursor: pointer;
+            transition: .2s;
+            user-select: none;
+        }
+        .bio:active {
+            transform: scale(0.95);
+            opacity: .6;
+        }
+
+        /* ===== BUTTONS ===== */
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .buttons a {
+            display: block;
+            padding: 13px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            color: #fff;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 12px;
+            transition: .25s ease;
+            letter-spacing: .5px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .buttons a:active {
+            transform: scale(0.95);
+            background: rgba(255, 255, 255, .18);
+            box-shadow: 0 0 25px rgba(255, 255, 255, .3);
+        }
+
+        /* ===== ANIMASI GRADIENT ===== */
+        @keyframes textGlow {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 200%;
+            }
+        }
+
+        /* ===== EMOJI JATUH ===== */
+        .fall {
+            position: fixed;
+            top: -50px;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            animation: fall linear forwards;
+            font-weight: bold;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-50px) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(110vh) rotate(720deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* ===== TOAST NOTIF ===== */
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            font-size: 13px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity .4s ease, transform .4s ease;
+            transform: translateX(-50%) translateY(20px);
+            pointer-events: none;
+            z-index: 99;
+            white-space: nowrap;
+        }
+        #toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="card">
+    <!-- ===== CARD ===== -->
+    <div class="card">
+        <img class="avatar"
+        src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
+        alt="Avatar THOM"
+        onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=120&background=ffffff&color=000&bold=true'">
 
-<img class="avatar"
-src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png">
+        <div class="name">𝗧𝗛𝗢𝗠</div>
 
-<div class="name">
-𝗧𝗛𝗢𝗠
-</div>
+        <div class="bio" id="bioText" title="Klik untuk salin bio">
+            ✦ The less you know, the better. ✦
+        </div>
 
-<div class="bio">
-The less you know, the better.
-</div>
+        <div class="buttons">
+            <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener">
+                🎮 Discord
+            </a>
+            <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener">
+                💎 TikTok
+            </a>
+        </div>
+    </div>
 
-<div class="buttons">
+    <!-- ===== TOAST ===== -->
+    <div id="toast">✅ Bio disalin!</div>
 
-<a href="https://discord.gg/GeXwAPfUY">
-🎮 Discord
-</a>
+    <script>
+        // =============================================
+        // 1. EMOJI JATUH (Lebih Ringan)
+        // =============================================
+        const emojis = ['✦', '⭐', '◆', '▪', '▫', '✧'];
 
-<a href="https://tiktok.com/@thom_id">
-💎 TikTok
-</a>
+        function createEmoji() {
+            const el = document.createElement('div');
+            el.className = 'fall';
+            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.left = Math.random() * window.innerWidth + 'px';
+            el.style.fontSize = (16 + Math.random() * 18) + 'px';
+            el.style.animationDuration = (5 + Math.random() * 4) + 's';
+            el.style.color = `hsla(${Math.random() * 60 + 200}, 80%, 70%, 0.7)`;
+            document.body.appendChild(el);
 
-</div>
+            setTimeout(() => el.remove(), 9000);
+        }
 
-</div><script>
+        // Lebih irit CPU: 3 emoji setiap 500ms
+        setInterval(() => {
+            for (let i = 0; i < 3; i++) createEmoji();
+        }, 500);
 
-function createEmoji(){
+        // =============================================
+        // 2. COPY BIO SAAT DIKLIK
+        // =============================================
+        const bioEl = document.getElementById('bioText');
+        const toast = document.getElementById('toast');
 
-    const emoji = document.createElement("div");
+        bioEl.addEventListener('click', function() {
+            const text = this.textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('✅ Bio disalin!');
+            }).catch(() => {
+                // Fallback: pake method lama
+                const area = document.createElement('textarea');
+                area.value = text;
+                document.body.appendChild(area);
+                area.select();
+                document.execCommand('copy');
+                document.body.removeChild(area);
+                showToast('✅ Bio disalin!');
+            });
+        });
 
-    emoji.className = "fall";
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toast._hide);
+            toast._hide = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 1800);
+        }
 
-    emoji.innerHTML = "🜲";
+        // =============================================
+        // 3. CEGAH SCROLL, ZOOM, DRAG
+        // =============================================
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
 
-    emoji.style.left = Math.random() * window.innerWidth + "px";
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
 
-    emoji.style.fontSize = (18 + Math.random() * 20) + "px";
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
 
-    emoji.style.animationDuration = (6 + Math.random() * 4) + "s";
+        window.addEventListener('wheel', function(e) {
+            e.preventDefault();
+        }, { passive: false });
 
-    document.body.appendChild(emoji);
+        // =============================================
+        // 4. HAPUS SPINNER/LOADING SAAT SEMUA SIAP
+        // =============================================
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
 
-    setTimeout(function(){
-        emoji.remove();
-    },6000);
-
-}
-
-setInterval(() => {
-    for(let i = 0; i < 5; i++){
-        createEmoji();
-    }
-}, 300);
-/* Mencegah scroll */
-document.addEventListener("touchmove", function(e){
-    e.preventDefault();
-}, { passive:false });
-
-/* Mencegah zoom gesture */
-document.addEventListener("gesturestart", function(e){
-    e.preventDefault();
-});
-
-/* Mencegah drag */
-document.addEventListener("dragstart", function(e){
-    e.preventDefault();
-});
-
-/* Mencegah scroll dengan mouse */
-window.addEventListener("wheel", function(e){
-    e.preventDefault();
-}, { passive:false });
-
-</script>
+        // =============================================
+        // 5. TAMPILKAN VERSI DI KONSOLE (Opsional)
+        // =============================================
+        console.log('%c✦ THOM PAGE ✦', 'font-size:18px; font-weight:bold; color:white; background:#222; padding:8px; border-radius:6px;');
+        console.log('The less you know, the better.');
+    </script>
 
 </body>
 </html>
