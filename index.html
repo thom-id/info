@@ -1,162 +1,308 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>THOM</title>  <style>  
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');  
-  
-*{  
-    margin:0;  
-    padding:0;  
-    box-sizing:border-box;  
-    font-family:Poppins,sans-serif;  
-}  
-  
-body{  
-    height:100vh;  
-    overflow:hidden;  
-    background:#000;  
-    color:white;  
-    display:flex;  
-    justify-content:center;  
-    align-items:center;  
-}  
-  
-body::before{  
-    content:"";  
-    position:absolute;  
-    inset:0;  
-    background:  
-    linear-gradient(  
-    rgba(0,0,0,.65),  
-    rgba(0,0,0,.85)  
-    ),  
-    url("background.png");  
-  
-    background-size:cover;  
-    background-position:center;  
-    filter:blur(3px);  
-    transform:scale(1.1);  
-}  
-  
-  
-.card{  
-    position:relative;  
-    width:360px;  
-    padding:30px;  
-    text-align:center;  
-  
-    background:rgba(255,255,255,.08);  
-    border:1px solid rgba(255,255,255,.2);  
-  
-    backdrop-filter:blur(15px);  
-    border-radius:20px;  
-  
-    box-shadow:  
-    0 0 40px rgba(255,255,255,.15);  
-  
-    animation:fade 1.5s;  
-}  
-  
-  
-@keyframes fade{  
-from{  
-opacity:0;  
-transform:translateY(30px);  
-}  
-to{  
-opacity:1;  
-transform:none;  
-}  
-}  
-  
-  
-.avatar{  
-    width:120px;  
-    height:120px;  
-  
-    border-radius:50%;  
-    object-fit:cover;  
-  
-    border:3px solid white;  
-  
-    box-shadow:  
-    0 0 25px white;  
-}  
-  
-  
-.name{  
-    margin-top:15px;  
-    font-size:32px;  
-    font-weight:800;  
-    letter-spacing:3px;  
-}  
-  
-  
-.bio{  
-    margin-top:10px;  
-    color:#ccc;  
-    font-size:14px;  
-}  
-  
-  
-.buttons{  
-    margin-top:25px;  
-}  
-  
-  
-.buttons a{  
-    display:block;  
-  
-    margin:12px 0;  
-    padding:13px;  
-  
-    color:white;  
-    text-decoration:none;  
-  
-    background:rgba(255,255,255,.1);  
-  
-    border:  
-    1px solid rgba(255,255,255,.25);  
-  
-    border-radius:12px;  
-  
-    transition:.3s;  
-}  
-  
-  
-.buttons a:hover{  
-  
-    background:white;  
-    color:black;  
-  
-    box-shadow:  
-    0 0 20px white;  
-}  
-  
-  
-.music{  
-    display:none;  
-}  
-  
-</style>  </head>  <body>  <div class="card">  <img class="avatar" src="avatar.png">  <div class="name">  
-𝗧𝗛𝗢𝗠  
-</div>  <div class="bio">  
-The less you know, the better.  
-</div>  <div class="buttons">  <a href="https://open.spotify.com/track/02shCNmb6IvgB5jLqKjtkK">  
-🎵 Spotify  
-</a>  <a href="https://discord.gg/GeXwAPfUY">  
-🎮 Discord  
-</a>  <a href="https://tiktok.com/@thom_id">  
-🎵 TikTok  
-</a>  </div>  <audio id="bgmusic" autoplay loop>  
-    <source src="music.mp3" type="audio/mpeg">  
-</audio>  <script>  
-window.onload = function(){  
-    const music = document.getElementById("bgmusic");  
-    music.volume = 0.5;  
-    music.play().catch(() => {  
-        console.log("Autoplay diblokir browser");  
-    });  
-}  
-</script>  </div>  </body>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THOM</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:#000;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:-20px;
+
+    background:
+    radial-gradient(
+    circle at center,
+    rgba(255,255,255,.25),
+    rgba(0,0,0,.85)
+    ),
+    url("https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png");
+
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(3px);
+    opacity:.55;
+
+    transform:scale(1.08);
+
+    animation:bgGlow 5s infinite alternate;
+}
+
+
+@keyframes bgGlow{
+from{
+filter:blur(3px);
+opacity:.45;
+}
+
+to{
+filter:blur(1px);
+opacity:.65;
+}
+}
+
+
+
+.card{
+    position:relative;
+
+    width:360px;
+    padding:30px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,.15);
+
+    animation:fade 1.5s;
+}
+
+
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:none;
+}
+}
+
+
+
+.avatar{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid transparent;
+
+    background:
+    linear-gradient(
+    90deg,
+    #ffffff,
+    #000000,
+    #ffffff
+    );
+
+    background-size:200%;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,.5);
+
+    animation:textGlow 3s linear infinite;
+}
+
+
+
+.name{
+
+    margin-top:15px;
+
+    font-size:32px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    color:transparent;
+
+
+    background:
+    linear-gradient(
+    90deg,
+    #ffffff,
+    #ff0000,
+    #000000,
+    #ffffff
+    );
+
+
+    background-size:200%;
+
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+
+    animation:textGlow 3s linear infinite;
+}
+
+
+
+.bio{
+
+    margin-top:10px;
+
+    color:#ccc;
+
+    font-size:14px;
+
+}
+
+
+
+.buttons{
+
+    margin-top:25px;
+
+}
+
+
+
+.buttons a{
+
+    display:block;
+
+    margin:12px 0;
+
+    padding:13px;
+
+
+    text-decoration:none;
+
+    font-weight:800;
+
+
+    color:transparent;
+
+
+    background:
+    linear-gradient(
+    90deg,
+    #ffffff,
+    #000000,
+    #ffffff
+    );
+
+
+    background-size:200%;
+
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+
+    animation:textGlow 3s linear infinite;
+
+
+    background-color:rgba(255,255,255,.1);
+
+
+    border:1px solid rgba(255,255,255,.25);
+
+
+    border-radius:12px;
+
+
+    transition:.3s;
+}
+
+
+
+.buttons a:hover{
+
+    box-shadow:
+    0 0 20px white;
+
+}
+
+
+
+@keyframes textGlow{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:200%;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+<img class="avatar" src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png">
+
+
+<div class="name">
+𝗧𝗛𝗢𝗠
+</div>
+
+
+<div class="bio">
+The less you know, the better.
+</div>
+
+
+<div class="buttons">
+
+
+<a href="https://discord.gg/GeXwAPfUY">
+🎮 Discord
+</a>
+
+
+<a href="https://tiktok.com/@thom_id">
+🎵 TikTok
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</body>
 </html>
