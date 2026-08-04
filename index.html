@@ -78,11 +78,11 @@
         .card {
             position: relative;
             z-index: 1;
-            width: 380px;
-            max-width: 92%;
-            padding: 28px 24px 24px;
+            width: 420px;
+            max-width: 94%;
+            padding: 24px 20px 20px;
             text-align: center;
-            background: rgba(18, 18, 18, 0.8);
+            background: rgba(18, 18, 18, 0.85);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -112,11 +112,11 @@
                    AVATAR
                    ========================================== */
         .avatar-wrapper {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .avatar {
-            width: 96px;
-            height: 96px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid rgba(255, 255, 255, 0.1);
@@ -134,16 +134,16 @@
                    USERNAME & BIO
                    ========================================== */
         .username {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             letter-spacing: 0.5px;
             color: #fff;
             margin-bottom: 2px;
         }
         .bio {
-            font-size: 14px;
+            font-size: 13px;
             color: #999;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 400;
         }
 
@@ -151,9 +151,9 @@
                    LAST SEEN
                    ========================================== */
         .lastseen {
-            font-size: 12px;
+            font-size: 11px;
             color: #555;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             letter-spacing: 0.3px;
         }
         .lastseen span {
@@ -161,56 +161,12 @@
         }
 
         /* ==========================================
-                   TAB
-                   ========================================== */
-        .tabs {
-            display: flex;
-            gap: 6px;
-            margin: 0 0 18px;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 40px;
-            padding: 4px;
-        }
-        .tab-btn {
-            padding: 7px 18px;
-            border: none;
-            border-radius: 30px;
-            background: transparent;
-            color: #777;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: 0.3s ease;
-            flex: 1;
-        }
-        .tab-btn.active {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        .tab-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* ==========================================
-                   KONTEN TAB
-                   ========================================== */
-        .tab-content {
-            display: none;
-            animation: fadeUp 0.4s ease;
-        }
-        .tab-content.active {
-            display: block;
-        }
-
-        /* ==========================================
-                   TOMBOL
+                   TOMBOL AKSI LANGSUNG (Discord & TikTok)
                    ========================================== */
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 18px;
         }
         .btn {
@@ -218,48 +174,40 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 12px;
+            padding: 14px;
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
             color: #ddd;
-            font-weight: 600;
-            font-size: 14px;
+            font-weight: 700;
+            font-size: 15px;
             cursor: pointer;
             transition: 0.25s ease;
             text-decoration: none;
-            letter-spacing: 0.2px;
+            letter-spacing: 0.3px;
+            width: 100%;
         }
         .btn:active {
             transform: scale(0.97);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
         }
         .btn .icon {
-            font-size: 17px;
-        }
-        .btn-link {
-            color: #fff;
-        }
-        .btn-link:hover {
-            border-color: rgba(255, 255, 255, 0.2);
+            font-size: 18px;
         }
 
-        /* ==========================================
-                   EFEK GERAK HITAM-PUTIH UNTUK TEKS DISCORD & TIKTOK
-                   ========================================== */
-        .btn-glow {
+        /* efek gradasi hitam-putih */
+        .btn-action {
             color: transparent;
             background: linear-gradient(90deg, #ffffff, #000000, #ffffff, #000000, #ffffff);
             background-size: 300% 100%;
             -webkit-background-clip: text;
             background-clip: text;
-            animation: textSlide 2.5s linear infinite;
+            animation: textSlide 2.8s linear infinite;
             font-weight: 800;
-            letter-spacing: 0.5px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             background-color: rgba(255, 255, 255, 0.04);
+            background-blend-mode: overlay;
         }
-
         @keyframes textSlide {
             0% {
                 background-position: 0% 50%;
@@ -270,7 +218,7 @@
         }
 
         /* ==========================================
-                   STATISTIK (Tanpa Location & UID)
+                   STATISTIK — hanya views
                    ========================================== */
         .stats {
             display: flex;
@@ -282,20 +230,104 @@
             font-size: 12px;
             color: #777;
         }
-        .stats span {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
         .stats .badge {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2px 12px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: none;
+        }
+
+        /* ==========================================
+                   GTPS HOSTING SECTION (seperti di gambar)
+                   ========================================== */
+        .gtps-section {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
+        }
+        .gtps-section .brand {
+            font-size: 13px;
+            font-weight: 700;
+            color: #aaa;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .gtps-section .brand span {
+            color: #666;
+            font-weight: 400;
             font-size: 11px;
-            font-weight: 600;
-            color: #bbb;
-            letter-spacing: 0.3px;
+        }
+        .gtps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .gtps-item {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            padding: 14px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.2s;
+        }
+        .gtps-item .title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ccc;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .gtps-item .title .icon {
+            font-size: 14px;
+        }
+        .gtps-item .desc {
+            font-size: 11px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .gtps-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 6px;
+        }
+        .gtps-footer .btn-join {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            color: #eee;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .gtps-footer .btn-join:active {
+            transform: scale(0.97);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        .gtps-footer .btn-join .icon {
+            font-size: 16px;
+        }
+
+        .gtps-footer .legal {
+            font-size: 9px;
+            color: #444;
+            text-align: center;
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+        .gtps-footer .legal a {
+            color: #666;
+            text-decoration: none;
         }
 
         /* ==========================================
@@ -361,66 +393,86 @@
         <!-- LAST SEEN (WIB real-time) -->
         <div class="lastseen">🕒 last seen <span id="lastSeen">just now</span></div>
 
-        <!-- ===== TAB ===== -->
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="profile">👤 Profil</button>
-            <button class="tab-btn" data-tab="links">🔗 Link</button>
+        <!-- ===== TOMBOL AKSI LANGSUNG ===== -->
+        <div class="buttons">
+            <!-- Tombol Join Discord utama (link tetap) -->
+            <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-action">
+                <span class="icon">🎮</span> Join Discord
+            </a>
+            <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener" class="btn btn-action">
+                <span class="icon">💎</span> Buka TikTok
+            </a>
         </div>
 
-        <!-- ===== TAB 1: PROFIL ===== -->
-        <div id="profile" class="tab-content active">
-
-            <div class="buttons">
-                <!-- Tombol Copy Discord dengan efek gerak hitam-putih -->
-                <button class="btn btn-copy btn-glow" data-copy="thom_discord">
-                    <span class="icon">🎮</span> Copy Discord
-                </button>
-                <!-- Tombol Copy TikTok dengan efek gerak hitam-putih -->
-                <button class="btn btn-copy btn-glow" data-copy="thom_tiktok">
-                    <span class="icon">💎</span> Copy TikTok
-                </button>
-            </div>
-
-            <div class="stats">
-                <span>👁️ Views <span id="views">0</span></span>
-                <span class="badge">🏅 HypeSquad Bravery</span>
-            </div>
-
+        <!-- ===== STATS ===== -->
+        <div class="stats">
+            <span>👁️ Views <span id="views">0</span></span>
         </div>
 
-        <!-- ===== TAB 2: LINK ===== -->
-        <div id="links" class="tab-content">
-
-            <div class="buttons">
-                <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-link">
-                    <span class="icon">🎮</span> Join Discord
-                </a>
-                <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener" class="btn btn-link">
-                    <span class="icon">💎</span> TikTok
-                </a>
-                <a href="https://instagram.com/thom_id" target="_blank" rel="noopener" class="btn btn-link">
-                    <span class="icon">📸</span> Instagram
-                </a>
-                <a href="https://youtube.com/@thom_id" target="_blank" rel="noopener" class="btn btn-link">
-                    <span class="icon">▶️</span> YouTube
-                </a>
+        <!-- ===== GTPS HOSTING SECTION ===== -->
+        <div class="gtps-section">
+            <div class="brand">
+                <span>⚡ GTPSHosting</span>
+                <span>Servers · Discord · Sign In</span>
             </div>
 
-            <!-- EMBED SPOTIFY -->
-            <div class="embed-wrapper">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3Z1lP8UwIGF0tQR7Fkf9nE?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <!-- grid 2 kolom -->
+            <div class="gtps-grid">
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">🛡️</span> DDoS Protected</div>
+                    <div class="desc">Your server stays online through attacks, shielded at the network edge.</div>
+                </div>
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">📈</span> 99.9% Uptime</div>
+                    <div class="desc">Always-on hosting so your players can log in any time, day or night.</div>
+                </div>
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">🎛️</span> Full Control Panel</div>
+                    <div class="desc">Start, stop, restart, configure, and monitor, all from your browser.</div>
+                </div>
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">💾</span> One-Click Backups</div>
+                    <div class="desc">Snapshot your world and roll back to any point in seconds.</div>
+                </div>
             </div>
 
-            <div style="margin-top:12px; font-size:11px; color:#444;">
-                ✦ support by buying me a coffee ✦
+            <!-- CAPABILITIES (baris kedua) -->
+            <div style="margin-top:4px; font-size:11px; font-weight:700; color:#888; letter-spacing:0.3px; margin-bottom:6px;">✦ CAPABILITIES</div>
+            <div class="gtps-grid">
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">⚙️</span> Server Control</div>
+                    <div class="desc">Start, stop, and restart your server process directly from the panel.</div>
+                </div>
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">🔄</span> Backup & Rollback</div>
+                    <div class="desc">Create snapshots and restore to any previous state in seconds.</div>
+                </div>
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">👥</span> Player Management</div>
+                    <div class="desc">View, search, and manage all player accounts from a clean interface.</div>
+                </div>
+                <div class="gtps-item">
+                    <div class="title"><span class="icon">🌍</span> World Management</div>
+                    <div class="desc">Browse all worlds, inspect activity, ownership, and manage data.</div>
+                </div>
             </div>
 
+            <!-- tombol JOIN DISCORD (khusus GTPS, link berbeda) -->
+            <div class="gtps-footer">
+                <a href="https://discord.gg/54F85nVrn" target="_blank" rel="noopener" class="btn-join">
+                    <span class="icon">▶</span> Join Discord
+                </a>
+                <div class="legal">
+                    GTPSHosting is a fan-made hosting service and is not affiliated with, endorsed by, or sponsored by Ubisoft or Growtopia.<br>
+                    © 2026 GTPSHosting. All rights reserved.
+                </div>
+            </div>
         </div>
 
     </div>
 
     <!-- ===== TOAST ===== -->
-    <div id="toast">✅ Tersalin!</div>
+    <div id="toast">✅ Membuka link...</div>
 
     <script>
         // =============================================
@@ -447,7 +499,6 @@
         // =============================================
         function updateLastSeen() {
             const now = new Date();
-            // Konversi ke WIB (UTC+7)
             const wib = new Date(now.getTime() + (7 * 60 * 60 * 1000));
             const hours = String(wib.getUTCHours()).padStart(2, '0');
             const minutes = String(wib.getUTCMinutes()).padStart(2, '0');
@@ -468,34 +519,15 @@
         })();
 
         // =============================================
-        // 4. TOMBOL COPY + TOAST
+        // 4. TOAST UNTUK FEEDBACK
         // =============================================
         var toast = document.getElementById('toast');
 
-        document.querySelectorAll('.btn-copy').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var text = this.dataset.copy;
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(text).then(function() {
-                        showToast('✅ Tersalin: ' + text);
-                    }).catch(function() {
-                        fallbackCopy(text);
-                    });
-                } else {
-                    fallbackCopy(text);
-                }
+        document.querySelectorAll('.btn-action, .btn-join').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                showToast('⏳ Membuka ' + (this.innerText.trim() || 'link') + '...');
             });
         });
-
-        function fallbackCopy(text) {
-            var area = document.createElement('textarea');
-            area.value = text;
-            document.body.appendChild(area);
-            area.select();
-            document.execCommand('copy');
-            document.body.removeChild(area);
-            showToast('✅ Tersalin: ' + text);
-        }
 
         function showToast(msg) {
             toast.textContent = msg;
@@ -503,28 +535,11 @@
             clearTimeout(toast._hide);
             toast._hide = setTimeout(function() {
                 toast.classList.remove('show');
-            }, 2000);
+            }, 1800);
         }
 
         // =============================================
-        // 5. TAB SWITCHING
-        // =============================================
-        document.querySelectorAll('.tab-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.tab-btn').forEach(function(b) {
-                    b.classList.remove('active');
-                });
-                document.querySelectorAll('.tab-content').forEach(function(c) {
-                    c.classList.remove('active');
-                });
-                this.classList.add('active');
-                var target = document.getElementById(this.dataset.tab);
-                if (target) target.classList.add('active');
-            });
-        });
-
-        // =============================================
-        // 6. CEGAH SCROLL, ZOOM, DRAG
+        // 5. CEGAH SCROLL, ZOOM, DRAG
         // =============================================
         document.addEventListener('touchmove', function(e) {
             e.preventDefault();
@@ -543,10 +558,10 @@
         }, { passive: false });
 
         // =============================================
-        // 7. KONSOLE
+        // 6. KONSOLE
         // =============================================
         console.log('%c✦ THOM | guns.lol style ✦', 'font-size:16px; font-weight:bold; color:white; background:#0a0a0a; padding:8px 16px; border-radius:8px; border:1px solid #333;');
     </script>
 
 </body>
-</html>
+    </html>
