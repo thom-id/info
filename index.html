@@ -19,7 +19,7 @@
         /* ==========================================
                    GLOBAL & RESET
                    ========================================== */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
         * {
             margin: 0;
@@ -235,97 +235,113 @@
         }
 
         /* ==========================================
-                   GTPS HOSTING SECTION (seperti di gambar)
+                   INFO GTPS HOSTING SECTION (biru-putih, memanjang)
                    ========================================== */
-        .gtps-section {
+        .gtps-info-section {
             margin-top: 22px;
             padding-top: 18px;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .gtps-info-section .brand {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+            margin-bottom: 2px;
+        }
+
+        .gtps-info-section .sub-brand {
+            font-size: 12px;
+            color: #888;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding-bottom: 12px;
+        }
+        .gtps-info-section .sub-brand span {
+            color: #4facfe;
+        }
+
+        .gtps-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
             text-align: left;
         }
-        .gtps-section .brand {
-            font-size: 13px;
-            font-weight: 700;
-            color: #aaa;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .gtps-section .brand span {
-            color: #666;
-            font-weight: 400;
-            font-size: 11px;
-        }
-        .gtps-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-        .gtps-item {
+        .gtps-info-item {
             background: rgba(255, 255, 255, 0.04);
-            border-radius: 14px;
-            padding: 14px 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
             transition: 0.2s;
         }
-        .gtps-item .title {
-            font-size: 12px;
+        .gtps-info-item .icon {
+            font-size: 16px;
+            min-width: 24px;
+            text-align: center;
+            color: #4facfe;
+        }
+        .gtps-info-item .content .title {
+            font-size: 13px;
             font-weight: 700;
-            color: #ccc;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            color: #ddd;
+            margin-bottom: 2px;
         }
-        .gtps-item .title .icon {
-            font-size: 14px;
-        }
-        .gtps-item .desc {
+        .gtps-info-item .content .desc {
             font-size: 11px;
             color: #777;
             line-height: 1.4;
         }
 
-        .gtps-footer {
+        .gtps-info-footer {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 6px;
+            margin-top: 4px;
         }
-        .gtps-footer .btn-join {
+        .gtps-info-footer .btn-join {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 12px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            border: none;
             border-radius: 14px;
-            color: #eee;
-            font-weight: 700;
+            color: #0a0a0a;
+            font-weight: 800;
             font-size: 14px;
             text-decoration: none;
             transition: 0.2s;
+            box-shadow: 0 4px 20px rgba(79, 172, 254, 0.25);
         }
-        .gtps-footer .btn-join:active {
+        .gtps-info-footer .btn-join:active {
             transform: scale(0.97);
-            background: rgba(255, 255, 255, 0.12);
+            opacity: 0.85;
         }
-        .gtps-footer .btn-join .icon {
+        .gtps-info-footer .btn-join .icon {
             font-size: 16px;
         }
 
-        .gtps-footer .legal {
+        .gtps-info-footer .legal {
             font-size: 9px;
             color: #444;
             text-align: center;
             line-height: 1.5;
             margin-top: 4px;
         }
-        .gtps-footer .legal a {
+        .gtps-info-footer .legal a {
             color: #666;
             text-decoration: none;
         }
@@ -395,7 +411,6 @@
 
         <!-- ===== TOMBOL AKSI LANGSUNG ===== -->
         <div class="buttons">
-            <!-- Tombol Join Discord utama (link tetap) -->
             <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-action">
                 <span class="icon">🎮</span> Join Discord
             </a>
@@ -409,62 +424,79 @@
             <span>👁️ Views <span id="views">0</span></span>
         </div>
 
-        <!-- ===== GTPS HOSTING SECTION ===== -->
-        <div class="gtps-section">
-            <div class="brand">
-                <span>⚡ GTPSHosting</span>
-                <span>Servers · Discord · Sign In</span>
+        <!-- ===== INFO GTPS HOSTING SECTION ===== -->
+        <div class="gtps-info-section">
+            <div class="brand">✦ Info GTPS Hosting ✦</div>
+            <div class="sub-brand">Discord <span>GTPS Hosting</span></div>
+
+            <!-- daftar fitur memanjang ke bawah -->
+            <div class="gtps-info-list">
+                <div class="gtps-info-item">
+                    <span class="icon">🛡️</span>
+                    <div class="content">
+                        <div class="title">DDoS Protected</div>
+                        <div class="desc">Your server stays online through attacks, shielded at the network edge.</div>
+                    </div>
+                </div>
+                <div class="gtps-info-item">
+                    <span class="icon">📈</span>
+                    <div class="content">
+                        <div class="title">99.9% Uptime</div>
+                        <div class="desc">Always-on hosting so your players can log in any time, day or night.</div>
+                    </div>
+                </div>
+                <div class="gtps-info-item">
+                    <span class="icon">🎛️</span>
+                    <div class="content">
+                        <div class="title">Full Control Panel</div>
+                        <div class="desc">Start, stop, restart, configure, and monitor, all from your browser.</div>
+                    </div>
+                </div>
+                <div class="gtps-info-item">
+                    <span class="icon">💾</span>
+                    <div class="content">
+                        <div class="title">One-Click Backups</div>
+                        <div class="desc">Snapshot your world and roll back to any point in seconds.</div>
+                    </div>
+                </div>
+                <div class="gtps-info-item">
+                    <span class="icon">⚙️</span>
+                    <div class="content">
+                        <div class="title">Server Control</div>
+                        <div class="desc">Start, stop, and restart your server process directly from the panel.</div>
+                    </div>
+                </div>
+                <div class="gtps-info-item">
+                    <span class="icon">🔄</span>
+                    <div class="content">
+                        <div class="title">Backup & Rollback</div>
+                        <div class="desc">Create snapshots and restore to any previous state in seconds.</div>
+                    </div>
+                </div>
+                <div class="gtps-info-item">
+                    <span class="icon">👥</span>
+                    <div class="content">
+                        <div class="title">Player Management</div>
+                        <div class="desc">View, search, and manage all player accounts from a clean interface.</div>
+                    </div>
+                </div>
+                <div class="gtps-info-item">
+                    <span class="icon">🌍</span>
+                    <div class="content">
+                        <div class="title">World Management</div>
+                        <div class="desc">Browse all worlds, inspect activity, ownership, and manage data.</div>
+                    </div>
+                </div>
             </div>
 
-            <!-- grid 2 kolom -->
-            <div class="gtps-grid">
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">🛡️</span> DDoS Protected</div>
-                    <div class="desc">Your server stays online through attacks, shielded at the network edge.</div>
-                </div>
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">📈</span> 99.9% Uptime</div>
-                    <div class="desc">Always-on hosting so your players can log in any time, day or night.</div>
-                </div>
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">🎛️</span> Full Control Panel</div>
-                    <div class="desc">Start, stop, restart, configure, and monitor, all from your browser.</div>
-                </div>
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">💾</span> One-Click Backups</div>
-                    <div class="desc">Snapshot your world and roll back to any point in seconds.</div>
-                </div>
-            </div>
-
-            <!-- CAPABILITIES (baris kedua) -->
-            <div style="margin-top:4px; font-size:11px; font-weight:700; color:#888; letter-spacing:0.3px; margin-bottom:6px;">✦ CAPABILITIES</div>
-            <div class="gtps-grid">
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">⚙️</span> Server Control</div>
-                    <div class="desc">Start, stop, and restart your server process directly from the panel.</div>
-                </div>
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">🔄</span> Backup & Rollback</div>
-                    <div class="desc">Create snapshots and restore to any previous state in seconds.</div>
-                </div>
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">👥</span> Player Management</div>
-                    <div class="desc">View, search, and manage all player accounts from a clean interface.</div>
-                </div>
-                <div class="gtps-item">
-                    <div class="title"><span class="icon">🌍</span> World Management</div>
-                    <div class="desc">Browse all worlds, inspect activity, ownership, and manage data.</div>
-                </div>
-            </div>
-
-            <!-- tombol JOIN DISCORD (khusus GTPS, link berbeda) -->
-            <div class="gtps-footer">
+            <!-- tombol JOIN DISCORD (link GTPS) -->
+            <div class="gtps-info-footer">
                 <a href="https://discord.gg/54F85nVrn" target="_blank" rel="noopener" class="btn-join">
                     <span class="icon">▶</span> Join Discord
                 </a>
                 <div class="legal">
-                    GTPSHosting is a fan-made hosting service and is not affiliated with, endorsed by, or sponsored by Ubisoft or Growtopia.<br>
-                    © 2026 GTPSHosting. All rights reserved.
+                    GTPS Hosting is a fan-made hosting service and is not affiliated with, endorsed by, or sponsored by Ubisoft or Growtopia.<br>
+                    © 2026 GTPS Hosting. All rights reserved.
                 </div>
             </div>
         </div>
@@ -532,36 +564,4 @@
         function showToast(msg) {
             toast.textContent = msg;
             toast.classList.add('show');
-            clearTimeout(toast._hide);
-            toast._hide = setTimeout(function() {
-                toast.classList.remove('show');
-            }, 1800);
-        }
-
-        // =============================================
-        // 5. CEGAH SCROLL, ZOOM, DRAG
-        // =============================================
-        document.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-        }, { passive: false });
-
-        document.addEventListener('gesturestart', function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-        });
-
-        window.addEventListener('wheel', function(e) {
-            e.preventDefault();
-        }, { passive: false });
-
-        // =============================================
-        // 6. KONSOLE
-        // =============================================
-        console.log('%c✦ THOM | guns.lol style ✦', 'font-size:16px; font-weight:bold; color:white; background:#0a0a0a; padding:8px 16px; border-radius:8px; border:1px solid #333;');
-    </script>
-
-</body>
-    </html>
+            clearTime
