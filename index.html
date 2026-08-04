@@ -10,228 +10,214 @@
     <meta property="og:title" content="THOM">
     <meta property="og:description" content="The less you know, the better.">
     <meta property="og:image" content="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png">
-    <meta property="og:url" content="">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#0a0a0a">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' style='font-weight:bold'>✦</text></svg>">
 
     <style>
         /* ===== FONT ===== */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
         /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Arial', sans-serif;
+            font-family: 'Inter', 'Arial', sans-serif;
         }
 
-        html {
+        html, body {
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             overflow: hidden;
             touch-action: none;
             overscroll-behavior: none;
-        }
-
-        body {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            background: #000;
-            color: white;
+            background: #0a0a0a;
+            color: #e0e0e0;
             display: flex;
+            justify-content: center;
+            align-items: center;
             position: fixed;
             inset: 0;
-            touch-action: none;
-            overscroll-behavior: none;
         }
 
-        /* ===== BACKGROUND ===== */
-        body::before {
-            content: "";
+        /* ===== BINTANG BACKGROUND ===== */
+        #stars {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .star {
             position: absolute;
-            inset: -20px;
-            background:
-                radial-gradient(circle at center, rgba(255, 255, 255, .25), rgba(0, 0, 0, .85)),
-                url("https://cdn.phototourl.com/free/2026-08-04-d6f9b2fe-ed73-4dee-bf3a-8319470183c7.jpg");
-            background-size: cover;
-            background-position: center;
-            filter: blur(3px);
-            opacity: .55;
-            transform: scale(1.08);
-            animation: bgGlow 5s infinite alternate;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite alternate;
+            opacity: 0.3;
         }
-
-        @keyframes bgGlow {
-            from {
-                filter: blur(3px);
-                opacity: .45;
-            }
-            to {
-                filter: blur(1px);
-                opacity: .65;
-            }
+        @keyframes twinkle {
+            0% { opacity: 0.1; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
         }
 
         /* ===== CARD ===== */
         .card {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 360px;
+            position: relative;
+            z-index: 1;
+            width: 380px;
             max-width: 92%;
-            padding: 30px 24px;
+            padding: 32px 28px 28px;
             text-align: center;
-            background: rgba(255, 255, 255, .08);
-            border: 1px solid rgba(255, 255, 255, .2);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 20px;
-            box-shadow: 0 0 40px rgba(255, 255, 255, .15);
-            animation: fade 1.5s ease-out;
-            z-index: 2;
+            background: rgba(20, 20, 20, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: fadeUp 1s ease-out;
         }
 
-        @keyframes fade {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -40%);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ===== AVATAR ===== */
+        .avatar-wrapper {
+            margin-bottom: 16px;
+        }
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid transparent;
-            background: linear-gradient(90deg, #ffffff, #000000, #ffffff);
-            background-size: 200%;
-            box-shadow: 0 0 25px rgba(255, 255, 255, .5);
-            animation: textGlow 3s linear infinite;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
             display: block;
             margin: 0 auto;
+            transition: 0.3s;
+        }
+        .avatar:hover {
+            transform: scale(1.03);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* ===== NAME ===== */
-        .name {
-            margin-top: 15px;
-            font-size: 32px;
+        /* ===== USERNAME ===== */
+        .username {
+            font-size: 28px;
             font-weight: 800;
-            letter-spacing: 3px;
-            color: transparent;
-            background: linear-gradient(90deg, #ffffff, #ff0000, #000000, #ffffff);
-            background-size: 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: textGlow 3s linear infinite;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-bottom: 4px;
         }
 
         /* ===== BIO ===== */
         .bio {
-            margin-top: 10px;
-            color: #ccc;
-            font-size: 14px;
-            cursor: pointer;
-            transition: .2s;
-            user-select: none;
+            font-size: 15px;
+            color: #aaa;
+            margin-bottom: 18px;
+            font-weight: 400;
         }
-        .bio:active {
-            transform: scale(0.95);
-            opacity: .6;
+
+        /* ===== LAST SEEN ===== */
+        .lastseen {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 22px;
+            letter-spacing: 0.3px;
+        }
+        .lastseen span {
+            color: #888;
         }
 
         /* ===== BUTTONS ===== */
         .buttons {
-            margin-top: 25px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
+            margin-bottom: 24px;
         }
-
-        .buttons a {
-            display: block;
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             padding: 13px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #e0e0e0;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            color: #fff;
-            background: rgba(255, 255, 255, .07);
-            border: 1px solid rgba(255, 255, 255, .2);
-            border-radius: 12px;
-            transition: .25s ease;
-            letter-spacing: .5px;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            letter-spacing: 0.3px;
+        }
+        .btn:active {
+            transform: scale(0.97);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        .btn .icon {
+            font-size: 18px;
+        }
+        .btn-copy:hover {
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
-        .buttons a:active {
-            transform: scale(0.95);
-            background: rgba(255, 255, 255, .18);
-            box-shadow: 0 0 25px rgba(255, 255, 255, .3);
+        /* ===== STATS ===== */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 13px;
+            color: #888;
+        }
+        .stats span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .stats .badge {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 12px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 11px;
+            font-weight: 600;
+            color: #ccc;
+            letter-spacing: 0.3px;
         }
 
-        /* ===== ANIMASI GRADIENT ===== */
-        @keyframes textGlow {
-            0% {
-                background-position: 0%;
-            }
-            100% {
-                background-position: 200%;
-            }
-        }
-
-        /* ===== EMOJI JATUH ===== */
-        .fall {
-            position: fixed;
-            top: -50px;
-            pointer-events: none;
-            user-select: none;
-            z-index: 1;
-            animation: fall linear forwards;
-            font-weight: bold;
-        }
-
-        @keyframes fall {
-            from {
-                transform: translateY(-50px) rotate(0deg) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(110vh) rotate(720deg) scale(0.3);
-                opacity: 0;
-            }
-        }
-
-        /* ===== TOAST NOTIF ===== */
+        /* ===== TOAST ===== */
         #toast {
             position: fixed;
             bottom: 30px;
             left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, .15);
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(20, 20, 20, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 10px 24px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 13px;
-            color: #fff;
+            color: #eee;
             opacity: 0;
-            transition: opacity .4s ease, transform .4s ease;
-            transform: translateX(-50%) translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
             pointer-events: none;
             z-index: 99;
             white-space: nowrap;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         #toast.show {
             opacity: 1;
@@ -239,78 +225,115 @@
         }
     </style>
 </head>
-
 <body>
+
+    <!-- ===== BINTANG ===== -->
+    <div id="stars"></div>
 
     <!-- ===== CARD ===== -->
     <div class="card">
-        <img class="avatar"
-        src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
-        alt="Avatar THOM"
-        onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=120&background=ffffff&color=000&bold=true'">
-
-        <div class="name">𝗧𝗛𝗢𝗠</div>
-
-        <div class="bio" id="bioText" title="Klik untuk salin bio">
-            ✦ The less you know, the better. ✦
+        <!-- Avatar -->
+        <div class="avatar-wrapper">
+            <img class="avatar"
+                 src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
+                 alt="Avatar THOM"
+                 onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=100&background=1a1a1a&color=fff&bold=true'">
         </div>
 
+        <!-- Username -->
+        <div class="username">𝗧𝗛𝗢𝗠</div>
+
+        <!-- Bio -->
+        <div class="bio">✦ The less you know, the better. ✦</div>
+
+        <!-- Last Seen -->
+        <div class="lastseen">🕒 last seen <span id="lastSeen">just now</span></div>
+
+        <!-- Tombol -->
         <div class="buttons">
-            <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener">
-                🎮 Discord
-            </a>
-            <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener">
-                💎 TikTok
-            </a>
+            <button class="btn btn-copy" data-copy="thom_discord">
+                <span class="icon">🎮</span> Copy Discord
+            </button>
+            <button class="btn btn-copy" data-copy="thom_tiktok">
+                <span class="icon">💎</span> Copy TikTok
+            </button>
+            <button class="btn btn-copy" data-copy="https://guns.lol/thom">
+                <span class="icon">🔗</span> Copy Profile Link
+            </button>
+        </div>
+
+        <!-- Statistik -->
+        <div class="stats">
+            <span>📍 <span id="location">Lithuania</span></span>
+            <span>🆔 UID <span id="uid">1,850,070</span></span>
+            <span>👁️ Profile Views <span id="views">0</span></span>
+            <span class="badge">🏅 HypeSquad Bravery</span>
         </div>
     </div>
 
     <!-- ===== TOAST ===== -->
-    <div id="toast">✅ Bio disalin!</div>
+    <div id="toast">✅ Tersalin!</div>
 
     <script>
         // =============================================
-        // 1. EMOJI JATUH (Lebih Ringan)
+        // 1. BINTANG (Partikel halus)
         // =============================================
-        const emojis = ['✦', '⭐', '◆', '▪', '▫', '✧'];
+        (function createStars() {
+            const container = document.getElementById('stars');
+            for (let i = 0; i < 80; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (2 + Math.random() * 3) + 's');
+                star.style.animationDelay = (Math.random() * 3) + 's';
+                star.style.width = (1 + Math.random() * 2) + 'px';
+                star.style.height = star.style.width;
+                container.appendChild(star);
+            }
+        })();
 
-        function createEmoji() {
-            const el = document.createElement('div');
-            el.className = 'fall';
-            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            el.style.left = Math.random() * window.innerWidth + 'px';
-            el.style.fontSize = (16 + Math.random() * 18) + 'px';
-            el.style.animationDuration = (5 + Math.random() * 4) + 's';
-            el.style.color = `hsla(${Math.random() * 60 + 200}, 80%, 70%, 0.7)`;
-            document.body.appendChild(el);
-
-            setTimeout(() => el.remove(), 9000);
+        // =============================================
+        // 2. LAST SEEN (Otomatis)
+        // =============================================
+        function updateLastSeen() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('lastSeen').textContent = `today at ${hours}:${minutes}`;
         }
-
-        // Lebih irit CPU: 3 emoji setiap 500ms
-        setInterval(() => {
-            for (let i = 0; i < 3; i++) createEmoji();
-        }, 500);
+        updateLastSeen();
 
         // =============================================
-        // 2. COPY BIO SAAT DIKLIK
+        // 3. PROFILE VIEWS (Pakai localStorage)
         // =============================================
-        const bioEl = document.getElementById('bioText');
+        (function updateViews() {
+            let views = parseInt(localStorage.getItem('thom_views') || '0');
+            views += 1;
+            localStorage.setItem('thom_views', views);
+            document.getElementById('views').textContent = views;
+        })();
+
+        // =============================================
+        // 4. TOMBOL COPY + TOAST
+        // =============================================
         const toast = document.getElementById('toast');
 
-        bioEl.addEventListener('click', function() {
-            const text = this.textContent.trim();
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('✅ Bio disalin!');
-            }).catch(() => {
-                // Fallback: pake method lama
-                const area = document.createElement('textarea');
-                area.value = text;
-                document.body.appendChild(area);
-                area.select();
-                document.execCommand('copy');
-                document.body.removeChild(area);
-                showToast('✅ Bio disalin!');
+        document.querySelectorAll('.btn-copy').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const text = this.dataset.copy;
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('✅ Tersalin: ' + text);
+                }).catch(() => {
+                    // Fallback
+                    const area = document.createElement('textarea');
+                    area.value = text;
+                    document.body.appendChild(area);
+                    area.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(area);
+                    showToast('✅ Tersalin: ' + text);
+                });
             });
         });
 
@@ -320,41 +343,21 @@
             clearTimeout(toast._hide);
             toast._hide = setTimeout(() => {
                 toast.classList.remove('show');
-            }, 1800);
+            }, 2000);
         }
 
         // =============================================
-        // 3. CEGAH SCROLL, ZOOM, DRAG
+        // 5. CEGAH SCROLL, ZOOM, DRAG
         // =============================================
-        document.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-        }, { passive: false });
-
-        document.addEventListener('gesturestart', function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-        });
-
-        window.addEventListener('wheel', function(e) {
-            e.preventDefault();
-        }, { passive: false });
+        document.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+        document.addEventListener('gesturestart', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
+        window.addEventListener('wheel', e => e.preventDefault(), { passive: false });
 
         // =============================================
-        // 4. HAPUS SPINNER/LOADING SAAT SEMUA SIAP
+        // 6. KONSOLE (Buat gaya)
         // =============================================
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-        });
-
-        // =============================================
-        // 5. TAMPILKAN VERSI DI KONSOLE (Opsional)
-        // =============================================
-        console.log('%c✦ THOM PAGE ✦', 'font-size:18px; font-weight:bold; color:white; background:#222; padding:8px; border-radius:6px;');
-        console.log('The less you know, the better.');
+        console.log('%c✦ THOM | guns.lol style ✦', 'font-size:16px; font-weight:bold; color:white; background:#0a0a0a; padding:8px 16px; border-radius:8px; border:1px solid #333;');
     </script>
-
 </body>
 </html>
