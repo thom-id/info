@@ -321,7 +321,7 @@ function createEmoji(){
 
     emoji.style.fontSize = (18 + Math.random() * 20) + "px";
 
-    emoji.style.animationDuration = (3 + Math.random() * 3) + "s";
+    emoji.style.animationDuration = (6 + Math.random() * 4) + "s";
 
     document.body.appendChild(emoji);
 
@@ -335,7 +335,7 @@ setInterval(() => {
     for(let i = 0; i < 5; i++){
         createEmoji();
     }
-}, 100);
+}, 200);
 /* Mencegah scroll */
 document.addEventListener("touchmove", function(e){
     e.preventDefault();
