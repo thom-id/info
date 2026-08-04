@@ -73,13 +73,28 @@
         }
 
         /* ==========================================
-                   CARD UTAMA
+                   WRAPPER UTAMA (2 KOLOM)
                    ========================================== */
-        .card {
+        .wrapper {
             position: relative;
             z-index: 1;
             width: 420px;
             max-width: 94%;
+            max-height: 96vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ==========================================
+                   KOLOM 1 — PROFIL UTAMA (HITAM)
+                   ========================================== */
+        .card-profile {
             padding: 24px 20px 20px;
             text-align: center;
             background: rgba(18, 18, 18, 0.85);
@@ -89,12 +104,21 @@
             border-radius: 28px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
             animation: fadeUp 0.8s ease-out;
-            max-height: 96vh;
-            overflow-y: auto;
-            scrollbar-width: none;
         }
-        .card::-webkit-scrollbar {
-            display: none;
+
+        /* ==========================================
+                   KOLOM 2 — INFO GTPS (BIRU PUTIH HITAM)
+                   ========================================== */
+        .card-gtps {
+            padding: 20px 20px 18px;
+            text-align: center;
+            background: linear-gradient(145deg, rgba(20, 30, 50, 0.92), rgba(10, 15, 30, 0.92));
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(79, 172, 254, 0.25);
+            border-radius: 28px;
+            box-shadow: 0 10px 40px rgba(79, 172, 254, 0.15);
+            animation: fadeUp 0.8s ease-out 0.15s both;
         }
 
         @keyframes fadeUp {
@@ -195,7 +219,6 @@
             font-size: 18px;
         }
 
-        /* efek gradasi hitam-putih */
         .btn-action {
             color: transparent;
             background: linear-gradient(90deg, #ffffff, #000000, #ffffff, #000000, #ffffff);
@@ -218,7 +241,7 @@
         }
 
         /* ==========================================
-                   STATISTIK — hanya views
+                   STATISTIK — views
                    ========================================== */
         .stats {
             display: flex;
@@ -230,22 +253,11 @@
             font-size: 12px;
             color: #777;
         }
-        .stats .badge {
-            display: none;
-        }
 
         /* ==========================================
-                   INFO GTPS HOSTING SECTION — BIRU PUTIH BERGERAK
+                   GTPS CARD — BIRU PUTIH HITAM
                    ========================================== */
-        .gtps-info-section {
-            margin-top: 22px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            text-align: center;
-        }
-
-        /* Brand bergerak biru-putih */
-        .gtps-info-section .brand {
+        .gtps-brand {
             font-size: 20px;
             font-weight: 900;
             letter-spacing: 1px;
@@ -269,21 +281,21 @@
             }
         }
 
-        .gtps-info-section .sub-brand {
+        .gtps-sub {
             font-size: 12px;
-            color: #888;
+            color: #8899bb;
             font-weight: 600;
             letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 14px;
+            border-bottom: 1px solid rgba(79, 172, 254, 0.15);
             padding-bottom: 12px;
         }
-        .gtps-info-section .sub-brand span {
+        .gtps-sub span {
             color: #4facfe;
         }
 
         /* Tombol Join Discord — BIRU PUTIH BERGERAK */
-        .gtps-info-footer .btn-join {
+        .btn-join-gtps {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -313,22 +325,22 @@
                 background-position: 0% 50%;
             }
         }
-        .gtps-info-footer .btn-join:active {
+        .btn-join-gtps:active {
             transform: scale(0.97);
             opacity: 0.85;
         }
-        .gtps-info-footer .btn-join .icon {
+        .btn-join-gtps .icon {
             font-size: 16px;
         }
 
-        .gtps-info-footer .legal {
+        .gtps-legal {
             font-size: 9px;
             color: #445566;
             text-align: center;
             line-height: 1.5;
-            margin-top: 8px;
+            margin-top: 10px;
         }
-        .gtps-info-footer .legal a {
+        .gtps-legal a {
             color: #557799;
             text-decoration: none;
         }
@@ -364,11 +376,11 @@
         /* ==========================================
                    SCROLLBAR HIDE
                    ========================================== */
-        .card {
+        .wrapper {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        .card::-webkit-scrollbar {
+        .wrapper::-webkit-scrollbar {
             display: none;
         }
     </style>
@@ -378,53 +390,57 @@
     <!-- ===== BINTANG ===== -->
     <div id="stars"></div>
 
-    <!-- ===== CARD ===== -->
-    <div class="card">
+    <!-- ===== WRAPPER (2 KOLOM) ===== -->
+    <div class="wrapper">
 
-        <!-- AVATAR -->
-        <div class="avatar-wrapper">
-            <img class="avatar"
-            src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
-            alt="Avatar THOM"
-            onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=96&background=1a1a1a&color=fff&bold=true'">
-        </div>
+        <!-- ===== KOLOM 1 — PROFIL ===== -->
+        <div class="card-profile">
 
-        <!-- USERNAME & BIO -->
-        <div class="username">𝗧𝗛𝗢𝗠</div>
-        <div class="bio">✦ The less you know, the better. ✦</div>
+            <!-- AVATAR -->
+            <div class="avatar-wrapper">
+                <img class="avatar"
+                src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
+                alt="Avatar THOM"
+                onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=96&background=1a1a1a&color=fff&bold=true'">
+            </div>
 
-        <!-- LAST SEEN (WIB real-time) -->
-        <div class="lastseen">🕒 last seen <span id="lastSeen">just now</span></div>
+            <!-- USERNAME & BIO -->
+            <div class="username">𝗧𝗛𝗢𝗠</div>
+            <div class="bio">✦ The less you know, the better. ✦</div>
 
-        <!-- ===== TOMBOL AKSI LANGSUNG ===== -->
-        <div class="buttons">
-            <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-action">
-                <span class="icon">🎮</span> Join Discord
-            </a>
-            <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener" class="btn btn-action">
-                <span class="icon">♪</span> Buka TikTok
-            </a>
-        </div>
+            <!-- LAST SEEN -->
+            <div class="lastseen">🕒 last seen <span id="lastSeen">just now</span></div>
 
-        <!-- ===== STATS ===== -->
-        <div class="stats">
-            <span>👁️ Views <span id="views">0</span></span>
-        </div>
-
-        <!-- ===== INFO GTPS HOSTING SECTION — BIRU PUTIH BERGERAK ===== -->
-        <div class="gtps-info-section">
-            <div class="brand">✦ Info GTPS Hosting ✦</div>
-            <div class="sub-brand">Discord <span>GTPS Hosting</span></div>
-
-            <!-- tombol JOIN DISCORD (link GTPS) — biru putih bergerak -->
-            <div class="gtps-info-footer">
-                <a href="https://discord.gg/54F85nVrn" target="_blank" rel="noopener" class="btn-join">
-                    <span class="icon">▶</span> Join Discord
+            <!-- TOMBOL AKSI -->
+            <div class="buttons">
+                <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-action">
+                    <span class="icon">🎮</span> Join Discord
                 </a>
-                <div class="legal">
-                    GTPS Hosting is a fan-made hosting service and is not affiliated with, endorsed by, or sponsored by Ubisoft or Growtopia.<br>
-                    © 2026 GTPS Hosting. All rights reserved.
-                </div>
+                <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener" class="btn btn-action">
+                    <span class="icon">♪</span> Buka TikTok
+                </a>
+            </div>
+
+            <!-- STATS -->
+            <div class="stats">
+                <span>👁️ Views <span id="views">0</span></span>
+            </div>
+        </div>
+
+        <!-- ===== KOLOM 2 — INFO GTPS (BIRU PUTIH HITAM) ===== -->
+        <div class="card-gtps">
+
+            <div class="gtps-brand">✦ Info GTPS Hosting ✦</div>
+            <div class="gtps-sub">Discord <span>GTPS Hosting</span></div>
+
+            <a href="https://discord.gg/54F85nVrn" target="_blank" rel="noopener" class="btn-join-gtps">
+                <span class="icon">▶</span> Join Discord
+            </a>
+
+            <div class="gtps-legal">
+                GTPS Hosting is a fan-made hosting service and is not affiliated with,<br>
+                endorsed by, or sponsored by Ubisoft or Growtopia.<br>
+                © 2026 GTPS Hosting. All rights reserved.
             </div>
         </div>
 
@@ -454,7 +470,7 @@
         })();
 
         // =============================================
-        // 2. LAST SEEN (UPDATE TIAP DETIK - WIB)
+        // 2. LAST SEEN (WIB)
         // =============================================
         function updateLastSeen() {
             const now = new Date();
@@ -468,7 +484,7 @@
         setInterval(updateLastSeen, 1000);
 
         // =============================================
-        // 3. PROFILE VIEWS (localStorage)
+        // 3. VIEWS
         // =============================================
         (function updateViews() {
             let views = parseInt(localStorage.getItem('thom_views') || '0');
@@ -478,11 +494,11 @@
         })();
 
         // =============================================
-        // 4. TOAST UNTUK FEEDBACK
+        // 4. TOAST
         // =============================================
         var toast = document.getElementById('toast');
 
-        document.querySelectorAll('.btn-action, .btn-join').forEach(function(btn) {
+        document.querySelectorAll('.btn-action, .btn-join-gtps').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 showToast('⏳ Membuka ' + (this.innerText.trim() || 'link') + '...');
             });
@@ -498,4 +514,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
