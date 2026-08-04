@@ -274,63 +274,12 @@
             color: #888;
             font-weight: 600;
             letter-spacing: 0.5px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             padding-bottom: 12px;
         }
         .gtps-info-section .sub-brand span {
             color: #4facfe;
-        }
-
-        /* Daftar fitur — background biru transparan bergerak */
-        .gtps-info-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 16px;
-            text-align: left;
-        }
-        .gtps-info-item {
-            border-radius: 12px;
-            padding: 12px 14px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            transition: 0.3s;
-            /* background bergerak biru-putih */
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(0, 242, 254, 0.05), rgba(255, 255, 255, 0.10), rgba(79, 172, 254, 0.15));
-            background-size: 300% 300%;
-            animation: blueWhiteBg 6s ease-in-out infinite;
-            border: 1px solid rgba(79, 172, 254, 0.15);
-        }
-        @keyframes blueWhiteBg {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .gtps-info-item .icon {
-            font-size: 16px;
-            min-width: 24px;
-            text-align: center;
-            color: #4facfe;
-        }
-        .gtps-info-item .content .title {
-            font-size: 13px;
-            font-weight: 700;
-            color: #e8f0fe;
-            margin-bottom: 2px;
-        }
-        .gtps-info-item .content .desc {
-            font-size: 11px;
-            color: #b0c4de;
-            line-height: 1.4;
         }
 
         /* Tombol Join Discord — BIRU PUTIH BERGERAK */
@@ -353,6 +302,17 @@
             box-shadow: 0 4px 20px rgba(79, 172, 254, 0.3);
             text-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
         }
+        @keyframes blueWhiteBg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
         .gtps-info-footer .btn-join:active {
             transform: scale(0.97);
             opacity: 0.85;
@@ -366,7 +326,7 @@
             color: #445566;
             text-align: center;
             line-height: 1.5;
-            margin-top: 4px;
+            margin-top: 8px;
         }
         .gtps-info-footer .legal a {
             color: #557799;
@@ -456,66 +416,6 @@
             <div class="brand">✦ Info GTPS Hosting ✦</div>
             <div class="sub-brand">Discord <span>GTPS Hosting</span></div>
 
-            <!-- daftar fitur (background biru putih bergerak) -->
-            <div class="gtps-info-list">
-                <div class="gtps-info-item">
-                    <span class="icon">🛡️</span>
-                    <div class="content">
-                        <div class="title">DDoS Protected</div>
-                        <div class="desc">Your server stays online through attacks, shielded at the network edge.</div>
-                    </div>
-                </div>
-                <div class="gtps-info-item">
-                    <span class="icon">📈</span>
-                    <div class="content">
-                        <div class="title">99.9% Uptime</div>
-                        <div class="desc">Always-on hosting so your players can log in any time, day or night.</div>
-                    </div>
-                </div>
-                <div class="gtps-info-item">
-                    <span class="icon">🎛️</span>
-                    <div class="content">
-                        <div class="title">Full Control Panel</div>
-                        <div class="desc">Start, stop, restart, configure, and monitor, all from your browser.</div>
-                    </div>
-                </div>
-                <div class="gtps-info-item">
-                    <span class="icon">💾</span>
-                    <div class="content">
-                        <div class="title">One-Click Backups</div>
-                        <div class="desc">Snapshot your world and roll back to any point in seconds.</div>
-                    </div>
-                </div>
-                <div class="gtps-info-item">
-                    <span class="icon">⚙️</span>
-                    <div class="content">
-                        <div class="title">Server Control</div>
-                        <div class="desc">Start, stop, and restart your server process directly from the panel.</div>
-                    </div>
-                </div>
-                <div class="gtps-info-item">
-                    <span class="icon">🔄</span>
-                    <div class="content">
-                        <div class="title">Backup & Rollback</div>
-                        <div class="desc">Create snapshots and restore to any previous state in seconds.</div>
-                    </div>
-                </div>
-                <div class="gtps-info-item">
-                    <span class="icon">👥</span>
-                    <div class="content">
-                        <div class="title">Player Management</div>
-                        <div class="desc">View, search, and manage all player accounts from a clean interface.</div>
-                    </div>
-                </div>
-                <div class="gtps-info-item">
-                    <span class="icon">🌍</span>
-                    <div class="content">
-                        <div class="title">World Management</div>
-                        <div class="desc">Browse all worlds, inspect activity, ownership, and manage data.</div>
-                    </div>
-                </div>
-            </div>
-
             <!-- tombol JOIN DISCORD (link GTPS) — biru putih bergerak -->
             <div class="gtps-info-footer">
                 <a href="https://discord.gg/54F85nVrn" target="_blank" rel="noopener" class="btn-join">
@@ -562,8 +462,8 @@
             const hours = String(wib.getUTCHours()).padStart(2, '0');
             const minutes = String(wib.getUTCMinutes()).padStart(2, '0');
             const seconds = String(wib.getUTCSeconds()).padStart(2, '0');
-            document.getElementById('lastSeen').textContent = 'today at ' + hours + ':' + minutes + ':' + seconds + ' WIB
-                }
+            document.getElementById('lastSeen').textContent = 'today at ' + hours + ':' + minutes + ':' + seconds + ' WIB';
+        }
         updateLastSeen();
         setInterval(updateLastSeen, 1000);
 
@@ -598,4 +498,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
