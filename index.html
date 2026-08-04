@@ -235,7 +235,7 @@
         }
 
         /* ==========================================
-                   INFO GTPS HOSTING SECTION (biru-putih, memanjang)
+                   INFO GTPS HOSTING SECTION — BIRU PUTIH BERGERAK
                    ========================================== */
         .gtps-info-section {
             margin-top: 22px;
@@ -244,16 +244,29 @@
             text-align: center;
         }
 
+        /* Brand bergerak biru-putih */
         .gtps-info-section .brand {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 900;
             letter-spacing: 1px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #4facfe, #00f2fe, #ffffff, #4facfe);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+            animation: blueWhiteShift 4s ease-in-out infinite;
             margin-bottom: 2px;
+        }
+        @keyframes blueWhiteShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .gtps-info-section .sub-brand {
@@ -269,6 +282,7 @@
             color: #4facfe;
         }
 
+        /* Daftar fitur — background biru transparan bergerak */
         .gtps-info-list {
             display: flex;
             flex-direction: column;
@@ -277,15 +291,30 @@
             text-align: left;
         }
         .gtps-info-item {
-            background: rgba(255, 255, 255, 0.04);
             border-radius: 12px;
             padding: 12px 14px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            transition: 0.2s;
+            transition: 0.3s;
+            /* background bergerak biru-putih */
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(0, 242, 254, 0.05), rgba(255, 255, 255, 0.10), rgba(79, 172, 254, 0.15));
+            background-size: 300% 300%;
+            animation: blueWhiteBg 6s ease-in-out infinite;
+            border: 1px solid rgba(79, 172, 254, 0.15);
         }
+        @keyframes blueWhiteBg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .gtps-info-item .icon {
             font-size: 16px;
             min-width: 24px;
@@ -295,36 +324,34 @@
         .gtps-info-item .content .title {
             font-size: 13px;
             font-weight: 700;
-            color: #ddd;
+            color: #e8f0fe;
             margin-bottom: 2px;
         }
         .gtps-info-item .content .desc {
             font-size: 11px;
-            color: #777;
+            color: #b0c4de;
             line-height: 1.4;
         }
 
-        .gtps-info-footer {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 4px;
-        }
+        /* Tombol Join Discord — BIRU PUTIH BERGERAK */
         .gtps-info-footer .btn-join {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 12px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
             border: none;
             border-radius: 14px;
-            color: #0a0a0a;
+            color: #fff;
             font-weight: 800;
             font-size: 14px;
             text-decoration: none;
-            transition: 0.2s;
-            box-shadow: 0 4px 20px rgba(79, 172, 254, 0.25);
+            transition: 0.3s;
+            background: linear-gradient(135deg, #4facfe, #00f2fe, #ffffff, #4facfe);
+            background-size: 300% 300%;
+            animation: blueWhiteBg 4s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(79, 172, 254, 0.3);
+            text-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
         }
         .gtps-info-footer .btn-join:active {
             transform: scale(0.97);
@@ -336,13 +363,13 @@
 
         .gtps-info-footer .legal {
             font-size: 9px;
-            color: #444;
+            color: #445566;
             text-align: center;
             line-height: 1.5;
             margin-top: 4px;
         }
         .gtps-info-footer .legal a {
-            color: #666;
+            color: #557799;
             text-decoration: none;
         }
 
@@ -415,7 +442,7 @@
                 <span class="icon">🎮</span> Join Discord
             </a>
             <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener" class="btn btn-action">
-                <span class="icon">💎</span> Buka TikTok
+                <span class="icon">♪</span> Buka TikTok
             </a>
         </div>
 
@@ -424,12 +451,12 @@
             <span>👁️ Views <span id="views">0</span></span>
         </div>
 
-        <!-- ===== INFO GTPS HOSTING SECTION ===== -->
+        <!-- ===== INFO GTPS HOSTING SECTION — BIRU PUTIH BERGERAK ===== -->
         <div class="gtps-info-section">
             <div class="brand">✦ Info GTPS Hosting ✦</div>
             <div class="sub-brand">Discord <span>GTPS Hosting</span></div>
 
-            <!-- daftar fitur memanjang ke bawah -->
+            <!-- daftar fitur (background biru putih bergerak) -->
             <div class="gtps-info-list">
                 <div class="gtps-info-item">
                     <span class="icon">🛡️</span>
@@ -489,7 +516,7 @@
                 </div>
             </div>
 
-            <!-- tombol JOIN DISCORD (link GTPS) -->
+            <!-- tombol JOIN DISCORD (link GTPS) — biru putih bergerak -->
             <div class="gtps-info-footer">
                 <a href="https://discord.gg/54F85nVrn" target="_blank" rel="noopener" class="btn-join">
                     <span class="icon">▶</span> Join Discord
@@ -535,8 +562,8 @@
             const hours = String(wib.getUTCHours()).padStart(2, '0');
             const minutes = String(wib.getUTCMinutes()).padStart(2, '0');
             const seconds = String(wib.getUTCSeconds()).padStart(2, '0');
-            document.getElementById('lastSeen').textContent = 'today at ' + hours + ':' + minutes + ':' + seconds + ' WIB';
-        }
+            document.getElementById('lastSeen').textContent = 'today at ' + hours + ':' + minutes + ':' + seconds + ' WIB
+                }
         updateLastSeen();
         setInterval(updateLastSeen, 1000);
 
@@ -564,4 +591,11 @@
         function showToast(msg) {
             toast.textContent = msg;
             toast.classList.add('show');
-            clearTime
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(function() {
+                toast.classList.remove('show');
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
