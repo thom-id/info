@@ -17,7 +17,7 @@
 
     <style>
         /* ==========================================
-                   GLOBAL & RESET (SAMA PERSIS KODE AWAL)
+                   GLOBAL & RESET
                    ========================================== */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
@@ -45,7 +45,7 @@
         }
 
         /* ==========================================
-                   BINTANG BACKGROUND (SAMA PERSIS)
+                   BINTANG BACKGROUND
                    ========================================== */
         #stars {
             position: fixed;
@@ -73,7 +73,7 @@
         }
 
         /* ==========================================
-                   WRAPPER UTAMA (SAMA PERSIS)
+                   WRAPPER UTAMA
                    ========================================== */
         .wrapper {
             position: relative;
@@ -92,7 +92,7 @@
         }
 
         /* ==========================================
-                   KOLOM 1 — PROFIL (SAMA PERSIS KODE AWAL)
+                   KOLOM 1 — PROFIL
                    ========================================== */
         .card-profile {
             padding: 24px 20px 20px;
@@ -107,7 +107,7 @@
         }
 
         /* ==========================================
-                   KOLOM 2 — INFO GTPS (SAMA PERSIS KODE AWAL)
+                   KOLOM 2 — INFO GTPS
                    ========================================== */
         .card-gtps {
             padding: 20px 20px 18px;
@@ -133,7 +133,7 @@
         }
 
         /* ==========================================
-                   AVATAR (SAMA PERSIS)
+                   AVATAR
                    ========================================== */
         .avatar-wrapper {
             margin-bottom: 10px;
@@ -155,15 +155,13 @@
         }
 
         /* ==========================================
-                   USERNAME — HANYA INI YANG DIUBAH
-                   MENJADI MERAH PUTIH HITAM BERGERAK
+                   USERNAME — MERAH PUTIH HITAM BERGERAK
                    ========================================== */
         .username {
             font-size: 24px;
             font-weight: 800;
             letter-spacing: 0.5px;
             margin-bottom: 2px;
-            /* ★ PERUBAHAN: gradasi MERAH-PUTIH-HITAM bergerak */
             background: linear-gradient(90deg, #ff1a1a, #ffffff, #1a1a1a, #ff1a1a, #ffffff, #1a1a1a);
             background-size: 400% 100%;
             -webkit-background-clip: text;
@@ -177,7 +175,7 @@
         }
 
         /* ==========================================
-                   BIO & LAST SEEN (SAMA PERSIS)
+                   BIO & LAST SEEN
                    ========================================== */
         .bio {
             font-size: 13px;
@@ -197,42 +195,46 @@
         }
 
         /* ==========================================
-                   TOMBOL AKSI — SAMA PERSIS KODE AWAL
-                   (hitam-putih bergerak)
+                   TOMBOL AKSI — SEJAJAR HORIZONTAL (BARU!)
                    ========================================== */
         .buttons {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
             margin-bottom: 18px;
+            justify-content: center;
         }
+
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px;
+            gap: 8px;
+            padding: 14px 8px;
+            flex: 1;
+            max-width: 48%;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             color: #ddd;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             cursor: pointer;
             transition: 0.25s ease;
             text-decoration: none;
             letter-spacing: 0.3px;
-            width: 100%;
         }
+
         .btn:active {
             transform: scale(0.97);
             background: rgba(255, 255, 255, 0.12);
         }
+
         .btn .icon {
-            font-size: 18px;
+            font-size: 16px;
         }
 
-        /* TOMBOL DENGAN GRADASI HITAM-PUTIH (SAMA PERSIS KODE AWAL) */
+        /* TOMBOL DENGAN GRADASI HITAM-PUTIH BERGERAK */
         .btn-action {
             color: transparent;
             background: linear-gradient(90deg, #ffffff, #000000, #ffffff, #000000, #ffffff);
@@ -245,6 +247,7 @@
             background-color: rgba(255, 255, 255, 0.04);
             background-blend-mode: overlay;
         }
+
         @keyframes textSlide {
             0% {
                 background-position: 0% 50%;
@@ -255,7 +258,7 @@
         }
 
         /* ==========================================
-                   STATISTIK (SAMA PERSIS)
+                   STATISTIK
                    ========================================== */
         .stats {
             display: flex;
@@ -269,8 +272,7 @@
         }
 
         /* ==========================================
-                   GTPS CARD — SAMA PERSIS KODE AWAL
-                   (biru-putih bergerak)
+                   GTPS CARD — BIRU PUTIH BERGERAK
                    ========================================== */
         .gtps-brand {
             font-size: 20px;
@@ -309,7 +311,7 @@
             color: #4facfe;
         }
 
-        /* Tombol Join Discord — BIRU PUTIH BERGERAK (SAMA PERSIS) */
+        /* Tombol Join GTPS */
         .btn-join-gtps {
             display: flex;
             align-items: center;
@@ -361,7 +363,7 @@
         }
 
         /* ==========================================
-                   TOAST NOTIF (SAMA PERSIS)
+                   TOAST NOTIF
                    ========================================== */
         #toast {
             position: fixed;
@@ -389,7 +391,7 @@
         }
 
         /* ==========================================
-                   SCROLLBAR HIDE (SAMA PERSIS)
+                   SCROLLBAR HIDE
                    ========================================== */
         .wrapper {
             -ms-overflow-style: none;
@@ -419,21 +421,23 @@
                 onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=96&background=1a1a1a&color=fff&bold=true'">
             </div>
 
-            <!-- ★ USERNAME — SEKARANG MERAH PUTIH HITAM BERGERAK ★ -->
+            <!-- USERNAME -->
             <div class="username">𝗧𝗛𝗢𝗠</div>
 
-            <!-- BIO & LAST SEEN (SAMA PERSIS) -->
+            <!-- BIO & LAST SEEN -->
             <div class="bio">🜲 The less you know, the better. 🜲</div>
 
             <div class="lastseen">⏱ last seen <span id="lastSeen">just now</span></div>
 
-            <!-- TOMBOL AKSI (SAMA PERSIS: hitam-putih bergerak) -->
+            <!-- ==========================================
+            TOMBOL AKSI — DISCORD & TIKTOK SEJAJAR!
+            ========================================== -->
             <div class="buttons">
                 <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-action">
                     <span class="icon">◉</span> Discord
                 </a>
                 <a href="https://tiktok.com/@thom_id" target="_blank" rel="noopener" class="btn btn-action">
-                    <span class="icon">◉</span>‎ TikTok
+                    <span class="icon">◉</span> TikTok
                 </a>
             </div>
 
@@ -443,7 +447,7 @@
             </div>
         </div>
 
-        <!-- ===== KOLOM 2 — INFO GTPS (SAMA PERSIS: biru-putih) ===== -->
+        <!-- ===== KOLOM 2 — INFO GTPS ===== -->
         <div class="card-gtps">
 
             <div class="gtps-brand">⚒ GTPS Hosting ⚒</div>
@@ -467,7 +471,7 @@
 
     <script>
         // =============================================
-        // 1. BINTANG (SAMA PERSIS)
+        // 1. BINTANG
         // =============================================
         (function createStars() {
             const container = document.getElementById('stars');
@@ -486,7 +490,7 @@
         })();
 
         // =============================================
-        // 2. LAST SEEN (WIB) (SAMA PERSIS)
+        // 2. LAST SEEN (WIB)
         // =============================================
         function updateLastSeen() {
             const now = new Date();
@@ -500,7 +504,7 @@
         setInterval(updateLastSeen, 1000);
 
         // =============================================
-        // 3. VIEWS (SAMA PERSIS)
+        // 3. VIEWS
         // =============================================
         (function updateViews() {
             let views = parseInt(localStorage.getItem('thom_views') || '0');
@@ -510,7 +514,7 @@
         })();
 
         // =============================================
-        // 4. TOAST (SAMA PERSIS)
+        // 4. TOAST
         // =============================================
         var toast = document.getElementById('toast');
 
