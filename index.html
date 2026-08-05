@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>THOM</title>
 
+    <!-- SEO & Social Sharing -->
     <meta name="description" content="The less you know, the better.">
     <meta property="og:title" content="THOM">
     <meta property="og:description" content="The less you know, the better.">
     <meta property="og:image" content="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png">
     <meta name="theme-color" content="#0a0a0a">
 
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' style='font-weight:bold'>✦</text></svg>">
 
     <style>
+        /* ==========================================
+                   GLOBAL & RESET (SAMA PERSIS KODE AWAL)
+                   ========================================== */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
         * {
@@ -23,7 +28,8 @@
             font-family: 'Inter', 'Arial', sans-serif;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             min-height: 100vh;
             overflow: hidden;
@@ -38,7 +44,9 @@
             inset: 0;
         }
 
-        /* BINTANG */
+        /* ==========================================
+                   BINTANG BACKGROUND (SAMA PERSIS)
+                   ========================================== */
         #stars {
             position: fixed;
             inset: 0;
@@ -54,10 +62,19 @@
             opacity: 0.3;
         }
         @keyframes twinkle {
-            0% { opacity: 0.1; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.2); }
+            0% {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
         }
 
+        /* ==========================================
+                   WRAPPER UTAMA (SAMA PERSIS)
+                   ========================================== */
         .wrapper {
             position: relative;
             z-index: 1;
@@ -70,9 +87,13 @@
             flex-direction: column;
             gap: 14px;
         }
-        .wrapper::-webkit-scrollbar { display: none; }
+        .wrapper::-webkit-scrollbar {
+            display: none;
+        }
 
-        /* KOLOM 1 — PROFIL (NETRAL) */
+        /* ==========================================
+                   KOLOM 1 — PROFIL (SAMA PERSIS KODE AWAL)
+                   ========================================== */
         .card-profile {
             padding: 24px 20px 20px;
             text-align: center;
@@ -85,30 +106,45 @@
             animation: fadeUp 0.8s ease-out;
         }
 
-        /* KOLOM 2 — GTPS (NETRAL) */
+        /* ==========================================
+                   KOLOM 2 — INFO GTPS (SAMA PERSIS KODE AWAL)
+                   ========================================== */
         .card-gtps {
             padding: 20px 20px 18px;
             text-align: center;
-            background: rgba(18, 18, 18, 0.85);
+            background: linear-gradient(145deg, rgba(20, 30, 50, 0.92), rgba(10, 15, 30, 0.92));
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(79, 172, 254, 0.25);
             border-radius: 28px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 40px rgba(79, 172, 254, 0.15);
             animation: fadeUp 0.8s ease-out 0.15s both;
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        /* ==========================================
+                   AVATAR (SAMA PERSIS)
+                   ========================================== */
+        .avatar-wrapper {
+            margin-bottom: 10px;
+        }
         .avatar {
             width: 88px;
             height: 88px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.03);
             display: block;
             margin: 0 auto;
             transition: 0.3s;
@@ -119,15 +155,15 @@
         }
 
         /* ==========================================
-           ★ HANYA TEKS THOM YANG BERGERAK ★
-           MERAH - PUTIH - HITAM
-           ========================================== */
+                   USERNAME — HANYA INI YANG DIUBAH
+                   MENJADI MERAH PUTIH HITAM BERGERAK
+                   ========================================== */
         .username {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 1px;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             margin-bottom: 2px;
-            /* GRADASI MERAH PUTIH HITAM BERGERAK */
+            /* ★ PERUBAHAN: gradasi MERAH-PUTIH-HITAM bergerak */
             background: linear-gradient(90deg, #ff1a1a, #ffffff, #1a1a1a, #ff1a1a, #ffffff, #1a1a1a);
             background-size: 400% 100%;
             -webkit-background-clip: text;
@@ -140,10 +176,12 @@
             100% { background-position: 400% 50%; }
         }
 
-        /* SEMUA YANG LAIN NETRAL (PUTIH/KELABU) */
+        /* ==========================================
+                   BIO & LAST SEEN (SAMA PERSIS)
+                   ========================================== */
         .bio {
             font-size: 13px;
-            color: #aaa;
+            color: #999;
             margin-bottom: 10px;
             font-weight: 400;
         }
@@ -152,11 +190,16 @@
             font-size: 11px;
             color: #555;
             margin-bottom: 16px;
+            letter-spacing: 0.3px;
         }
         .lastseen span {
-            color: #888;
+            color: #777;
         }
 
+        /* ==========================================
+                   TOMBOL AKSI — SAMA PERSIS KODE AWAL
+                   (hitam-putih bergerak)
+                   ========================================== */
         .buttons {
             display: flex;
             flex-direction: column;
@@ -178,30 +221,42 @@
             cursor: pointer;
             transition: 0.25s ease;
             text-decoration: none;
+            letter-spacing: 0.3px;
             width: 100%;
         }
         .btn:active {
             transform: scale(0.97);
             background: rgba(255, 255, 255, 0.12);
         }
-        .btn .icon { font-size: 18px; }
+        .btn .icon {
+            font-size: 18px;
+        }
 
-        /* TOMBOL TETAP NETRAL — TIDAK BERGERAK */
+        /* TOMBOL DENGAN GRADASI HITAM-PUTIH (SAMA PERSIS KODE AWAL) */
         .btn-action {
-            color: #ddd;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            /* TIDAK ADA GRADASI / ANIMASI */
-            -webkit-text-fill-color: #ddd;
-            background-clip: unset;
-            -webkit-background-clip: unset;
-            animation: none;
+            color: transparent;
+            background: linear-gradient(90deg, #ffffff, #000000, #ffffff, #000000, #ffffff);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textSlide 2.8s linear infinite;
+            font-weight: 800;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.04);
+            background-blend-mode: overlay;
         }
-        .btn-action:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
+        @keyframes textSlide {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 300% 50%;
+            }
         }
 
+        /* ==========================================
+                   STATISTIK (SAMA PERSIS)
+                   ========================================== */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -210,78 +265,104 @@
             padding-top: 14px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 12px;
-            color: #666;
-        }
-        #views {
-            color: #aaa;
-            font-weight: 600;
+            color: #777;
         }
 
-        /* GTPS — NETRAL */
+        /* ==========================================
+                   GTPS CARD — SAMA PERSIS KODE AWAL
+                   (biru-putih bergerak)
+                   ========================================== */
         .gtps-brand {
             font-size: 20px;
             font-weight: 900;
             letter-spacing: 1px;
-            color: #ddd;
+            background: linear-gradient(135deg, #4facfe, #00f2fe, #ffffff, #4facfe);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: blueWhiteShift 4s ease-in-out infinite;
             margin-bottom: 2px;
-            /* HILANGKAN GRADASI */
-            background: none;
-            -webkit-text-fill-color: #ddd;
-            animation: none;
+        }
+        @keyframes blueWhiteShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .gtps-sub {
             font-size: 12px;
-            color: #888;
+            color: #8899bb;
             font-weight: 600;
             letter-spacing: 0.5px;
             margin-bottom: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(79, 172, 254, 0.15);
             padding-bottom: 12px;
         }
         .gtps-sub span {
-            color: #aaa;
+            color: #4facfe;
         }
 
+        /* Tombol Join Discord — BIRU PUTIH BERGERAK (SAMA PERSIS) */
         .btn-join-gtps {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: none;
             border-radius: 14px;
-            color: #ddd;
+            color: #fff;
             font-weight: 800;
             font-size: 14px;
             text-decoration: none;
             transition: 0.3s;
-            background: rgba(255, 255, 255, 0.04);
-            /* HILANGKAN ANIMASI GRADASI */
-            animation: none;
-            box-shadow: none;
-            text-shadow: none;
+            background: linear-gradient(135deg, #4facfe, #00f2fe, #ffffff, #4facfe);
+            background-size: 300% 300%;
+            animation: blueWhiteBg 4s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(79, 172, 254, 0.3);
+            text-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes blueWhiteBg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
         .btn-join-gtps:active {
             transform: scale(0.97);
             opacity: 0.85;
         }
-        .btn-join-gtps:hover {
-            background: rgba(255, 255, 255, 0.08);
+        .btn-join-gtps .icon {
+            font-size: 16px;
         }
 
         .gtps-legal {
             font-size: 9px;
-            color: #555;
+            color: #445566;
             text-align: center;
             line-height: 1.5;
             margin-top: 10px;
         }
         .gtps-legal a {
-            color: #777;
+            color: #557799;
             text-decoration: none;
         }
 
+        /* ==========================================
+                   TOAST NOTIF (SAMA PERSIS)
+                   ========================================== */
         #toast {
             position: fixed;
             bottom: 30px;
@@ -307,22 +388,30 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        /* ==========================================
+                   SCROLLBAR HIDE (SAMA PERSIS)
+                   ========================================== */
         .wrapper {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        .wrapper::-webkit-scrollbar { display: none; }
+        .wrapper::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
+    <!-- ===== BINTANG ===== -->
     <div id="stars"></div>
 
+    <!-- ===== WRAPPER (2 KOLOM) ===== -->
     <div class="wrapper">
 
-        <!-- KOLOM 1 — PROFIL -->
+        <!-- ===== KOLOM 1 — PROFIL ===== -->
         <div class="card-profile">
 
+            <!-- AVATAR -->
             <div class="avatar-wrapper">
                 <img class="avatar"
                 src="https://cdn.phototourl.com/free/2026-08-04-1192ef1c-b388-45d3-8747-9df2928b501d.png"
@@ -330,14 +419,15 @@
                 onerror="this.src='https://ui-avatars.com/api/?name=THOM&size=96&background=1a1a1a&color=fff&bold=true'">
             </div>
 
-            <!-- ★ HANYA INI YANG BERGERAK MERAH PUTIH HITAM ★ -->
+            <!-- ★ USERNAME — SEKARANG MERAH PUTIH HITAM BERGERAK ★ -->
             <div class="username">𝗧𝗛𝗢𝗠</div>
 
-            <!-- YANG LAIN NETRAL -->
+            <!-- BIO & LAST SEEN (SAMA PERSIS) -->
             <div class="bio">🜲 The less you know, the better. 🜲</div>
 
             <div class="lastseen">⏱ last seen <span id="lastSeen">just now</span></div>
 
+            <!-- TOMBOL AKSI (SAMA PERSIS: hitam-putih bergerak) -->
             <div class="buttons">
                 <a href="https://discord.gg/GeXwAPfUY" target="_blank" rel="noopener" class="btn btn-action">
                     <span class="icon">🎮</span> Discord
@@ -347,19 +437,20 @@
                 </a>
             </div>
 
+            <!-- STATS -->
             <div class="stats">
                 <span>👁️ Views <span id="views">0</span></span>
             </div>
         </div>
 
-        <!-- KOLOM 2 — GTPS (NETRAL) -->
+        <!-- ===== KOLOM 2 — INFO GTPS (SAMA PERSIS: biru-putih) ===== -->
         <div class="card-gtps">
 
             <div class="gtps-brand">⚒ Info GTPS Hosting ⚒</div>
             <div class="gtps-sub">Discord <span>GTPS Hosting</span></div>
 
             <a href="https://discord.gg/54F85nVrn" target="_blank" rel="noopener" class="btn-join-gtps">
-                <span class="icon">⚡</span> Join Discord
+                <span class="icon"></span>Discord
             </a>
 
             <div class="gtps-legal">
@@ -371,10 +462,13 @@
 
     </div>
 
+    <!-- ===== TOAST ===== -->
     <div id="toast">✅ Membuka link...</div>
 
     <script>
-        // BINTANG
+        // =============================================
+        // 1. BINTANG (SAMA PERSIS)
+        // =============================================
         (function createStars() {
             const container = document.getElementById('stars');
             for (let i = 0; i < 80; i++) {
@@ -391,7 +485,9 @@
             }
         })();
 
-        // LAST SEEN WIB
+        // =============================================
+        // 2. LAST SEEN (WIB) (SAMA PERSIS)
+        // =============================================
         function updateLastSeen() {
             const now = new Date();
             const wib = new Date(now.getTime() + (7 * 60 * 60 * 1000));
@@ -403,7 +499,9 @@
         updateLastSeen();
         setInterval(updateLastSeen, 1000);
 
-        // VIEWS
+        // =============================================
+        // 3. VIEWS (SAMA PERSIS)
+        // =============================================
         (function updateViews() {
             let views = parseInt(localStorage.getItem('thom_views') || '0');
             views += 1;
@@ -411,7 +509,9 @@
             document.getElementById('views').textContent = views;
         })();
 
-        // TOAST
+        // =============================================
+        // 4. TOAST (SAMA PERSIS)
+        // =============================================
         var toast = document.getElementById('toast');
 
         document.querySelectorAll('.btn-action, .btn-join-gtps').forEach(function(btn) {
@@ -430,4 +530,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
