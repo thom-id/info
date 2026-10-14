@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struktur Server Discord</title>
+    <title>Server Roles Discord</title>
     <style>
         * {
             box-sizing: border-box;
@@ -11,188 +11,520 @@
             padding: 0;
         }
         body {
-            background-color: #1e1f22; /* Warna background Discord Mobile */
+            background-color: #000000; /* Background hitam pekat seperti di HP */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #dbdee1;
+            color: #ffffff;
             display: flex;
             justify-content: center;
-            padding: 20px;
+            padding: 0;
             min-height: 100vh;
         }
 
         .container {
             width: 100%;
             max-width: 400px; /* Ukuran layar HP */
-            background-color: #2b2d31;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 20px;
         }
 
-        /* Header Pencarian */
-        .search-header {
+        /* Header Atas */
+        .top-bar {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background-color: #1e1f22;
-            border-radius: 8px;
-            padding: 10px 14px;
-            margin-bottom: 20px;
-            color: #949ba4;
-            font-size: 14px;
-            cursor: text;
+            justify-content: space-between;
+            padding: 16px 20px;
+            font-size: 18px;
+            font-weight: 600;
         }
-        .search-header span {
-            font-size: 16px;
-        }
-
-        /* Kategori */
-        .category {
-            margin-bottom: 16px;
-        }
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #949ba4;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+        .top-bar .back-btn, .top-bar .add-btn {
+            font-size: 20px;
+            color: #b5bac1;
             cursor: pointer;
         }
-        .category-title .arrow {
-            font-size: 10px;
-            opacity: 0.7;
-        }
 
-        /* Channel Item */
-        .channel {
+        /* Search Bar */
+        .search-box {
+            margin: 0 16px 16px 16px;
+            background-color: #1a1a1a;
+            border: 1px solid #2b2d31;
+            border-radius: 8px;
+            padding: 10px 14px;
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 6px 8px;
-            border-radius: 6px;
-            font-size: 14px;
-            color: #b5bac1;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s;
-            margin-bottom: 2px;
-        }
-        .channel:hover {
-            background-color: #35373c;
-            color: #f2f3f5;
-        }
-
-        /* Icon */
-        .channel-icon {
-            width: 18px;
-            text-align: center;
+            color: #949ba4;
             font-size: 15px;
-            color: #949ba4;
-            flex-shrink: 0;
         }
 
-        /* Emoji di dalam tanda kurung */
-        .bracket-emoji {
-            font-size: 12px;
+        /* List Role */
+        .role-list {
+            display: flex;
+            flex-direction: column;
+            background-color: #111214;
+        }
+
+        .role-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-bottom: 1px solid #1e1f22;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .role-item:hover {
             background-color: #1e1f22;
-            border-radius: 4px;
-            padding: 0 4px;
-            margin-right: 4px;
-            display: inline-block;
         }
 
-        /* Khusus Voice Channel */
-        .channel.voice .channel-icon {
+        /* Bagian Kiri (Avatar + Nama) */
+        .role-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* Avatar Bulat */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            background-color: #36393f; /* Default abu-abu */
+        }
+        
+        /* Warna Avatar Khusus */
+        .avatar.white { background-color: #ffffff; color: #000; }
+        .avatar.brown { background-color: #8b5a2b; }
+        .avatar.red { background-color: #ff0000; }
+        .avatar.lightblue { background-color: #b5c7e8; color: #000; }
+        .avatar.green { background-color: #00ff00; color: #000; }
+        .avatar.pink { background-color: #ffb6c1; color: #000; }
+        .avatar.blue { background-color: #0055ff; }
+        .avatar.orange { background-color: #ffaa00; color: #000; }
+        .avatar.yellow { background-color: #ffdd00; color: #000; }
+        .avatar.purple { background-color: #aa00ff; }
+        .avatar.magenta { background-color: #ff00aa; }
+        .avatar.darkgray { background-color: #36393f; }
+
+        /* Info Teks */
+        .role-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .role-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f2f3f5;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .role-members {
+            font-size: 12px;
             color: #949ba4;
+            margin-top: 2px;
+        }
+
+        /* Icon Gembok */
+        .lock-icon {
+            font-size: 12px;
+            color: #949ba4;
+        }
+
+        /* Panah Kanan */
+        .chevron {
+            color: #949ba4;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    
+    <!-- Header -->
+    <div class="top-bar">
+        <div class="back-btn">←</div>
+        <div>Server Roles</div>
+        <div class="add-btn">+</div>
+    </div>
 
-    <!-- Search Bar -->
-    <div class="search-header">
+    <!-- Search -->
+    <div class="search-box">
         <span>🔍</span> Search
     </div>
 
-    <!-- ARRIVAL -->
-    <div class="category">
-        <div class="category-title">▼ ARRIVAL</div>
-        <div class="channel"><span class="channel-icon">#</span>「👾」welcome</div>
-    </div>
+    <!-- Daftar Role -->
+    <div class="role-list">
+        
+        <!-- FOUNDER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar darkgray">👤</div>
+                <div class="role-info">
+                    <div class="role-name">👑 Founder <span class="lock-icon">🔒</span></div>
+                    <div class="role-members">2 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
-    <!-- INFORMATION -->
-    <div class="category">
-        <div class="category-title">▼ INFORMATION</div>
-        <div class="channel"><span class="channel-icon">📢</span>「📢」announcement</div>
-        <div class="channel"><span class="channel-icon">📋</span>「📖」rules</div>
-        <div class="channel"><span class="channel-icon">📢</span>「🎉」giveaway</div>
-        <div class="channel"><span class="channel-icon">📢</span>「📅」weekly-event</div>
-        <div class="channel"><span class="channel-icon">#</span>「🔔」update</div>
-        <div class="channel"><span class="channel-icon">#</span>「⛩️」online-players</div>
-    </div>
+        <!-- KOYA -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Koya</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
-    <!-- HOW TO PLAY -->
-    <div class="category">
-        <div class="category-title">▼ HOW TO PLAY</div>
-        <div class="channel"><span class="channel-icon">#</span>「🎮」how-to-play</div>
-        <div class="channel"><span class="channel-icon">#</span>「💡」how-to-profit</div>
-    </div>
+        <!-- GIVEAWAY BOAT -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Giveaway Boat</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
-    <!-- GENERAL -->
-    <div class="category">
-        <div class="category-title">▼ GENERAL</div>
-        <div class="channel"><span class="channel-icon">#</span>「💬」chat-staff</div>
-        <div class="channel"><span class="channel-icon">#</span>「💬」chat</div>
-        <div class="channel"><span class="channel-icon">#</span>「📸」media</div>
-        <div class="channel"><span class="channel-icon">#</span>「📮」suggestion</div>
-        <div class="channel"><span class="channel-icon">#</span>「⚠️」tickets</div>
-        <div class="channel"><span class="channel-icon">#</span>「🎧」bug-report</div>
-        <div class="channel"><span class="channel-icon">#</span>「🤖」bot-command</div>
-    </div>
+        <!-- CARL-BOT -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">carl-bot</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
-    <!-- PROMOTE -->
-    <div class="category">
-        <div class="category-title">▼ PROMOTE</div>
-        <div class="channel"><span class="channel-icon">#</span>「📌」tiktok-promote</div>
-        <div class="channel"><span class="channel-icon">📢</span>「⚪」live-streaming</div>
-    </div>
+        <!-- TEMPVOICE -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">TempVoice</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
-    <!-- ROLE + ASSET -->
-    <div class="category">
-        <div class="category-title">▼ ROLE + ASSET</div>
-        <div class="channel"><span class="channel-icon">#</span>「💳」cicilan-role-citem</div>
-        <div class="channel"><span class="channel-icon">#</span>「🛒」price-roles</div>
-        <div class="channel"><span class="channel-icon">#</span>「🛒」custom-items</div>
-        <div class="channel"><span class="channel-icon">#</span>「🛒」title-asset-mag</div>
-        <div class="channel"><span class="channel-icon">#</span>「💵」purchase</div>
-        <div class="channel"><span class="channel-icon">#</span>「💰」payment</div>
-    </div>
+        <!-- CHALLENGE BUDDY -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Challenge Buddy</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
-    <!-- MARKETPLACE -->
-    <div class="category">
-        <div class="category-title">▼ MARKETPLACE</div>
-        <div class="channel"><span class="channel-icon">#</span>「📜」rmt-rules</div>
-        <div class="channel"><span class="channel-icon">#</span>「🔑」reseller</div>
-        <div class="channel"><span class="channel-icon">#</span>「🔒」buy-sell-lock</div>
-        <div class="channel"><span class="channel-icon">#</span>「🌍」buy-sell-world</div>
-        <div class="channel"><span class="channel-icon">#</span>「📚」buy-sell-item</div>
-        <div class="channel"><span class="channel-icon">#</span>「🔧」buy-sell-service</div>
-    </div>
+        <!-- JOCKIE MUSIC -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Jockie Music</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
-    <!-- MUSIC & VOICE -->
-    <div class="category">
-        <div class="category-title">▼ MUSIC & VOICE</div>
-        <div class="channel"><span class="channel-icon">#</span>「🎵」music-command</div>
-        <div class="channel voice"><span class="channel-icon">🔊</span>「➕」Join to Create</div>
-        <div class="channel voice"><span class="channel-icon">🔊</span>「🀄」Server Leadership</div>
-    </div>
+        <!-- TICKET TOOL -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Ticket Tool</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
 
+        <!-- FLAVIBOT -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">FlaviBot</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- THOM SERVICE -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">THOM SERVICE</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- NETWORK -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar darkgray">👤</div>
+                <div class="role-info">
+                    <div class="role-name">🌐 Network</div>
+                    <div class="role-members">0 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- STAFF -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar darkgray">👤</div>
+                <div class="role-info">
+                    <div class="role-name">🛡️ Staff</div>
+                    <div class="role-members">2 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- HELPER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar darkgray">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Helper</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- TOP SPENDER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar white"></div>
+                <div class="role-info">
+                    <div class="role-name">👑 Top Spender</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- SERVER SPENDER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar white"></div>
+                <div class="role-info">
+                    <div class="role-name">👑 Server Spender</div>
+                    <div class="role-members">0 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- SCRIPT TESTER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar brown">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Script Tester</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- RESELLER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar red">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Reseller</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- MIDDLEMAN -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Middleman</div>
+                    <div class="role-members">2 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- UNLIMITED BLOCK -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar green">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Unlimited Block</div>
+                    <div class="role-members">2 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- DESIGNER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar pink">👤</div>
+                <div class="role-info">
+                    <div class="role-name">🎨 Designer</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- CONTENT CREATOR -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar blue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Content Creator</div>
+                    <div class="role-members">2 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- MODERATOR MAX -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar orange">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Moderator Max</div>
+                    <div class="role-members">2 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- MODERATOR PLUS -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar yellow">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Moderator Plus</div>
+                    <div class="role-members">3 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- MODERATOR -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar purple">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Moderator</div>
+                    <div class="role-members">3 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- VIP -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar lightblue">👤</div>
+                <div class="role-info">
+                    <div class="role-name">★ VIP</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- GIRL -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar magenta">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Girl</div>
+                    <div class="role-members">7 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- AURIXTOPIANS -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar yellow">👤</div>
+                <div class="role-info">
+                    <div class="role-name">AurixTopians</div>
+                    <div class="role-members">126 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- BOOSTER -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar magenta">👤</div>
+                <div class="role-info">
+                    <div class="role-name">☆ Booster</div>
+                    <div class="role-members">0 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- (+) -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar white"></div>
+                <div class="role-info">
+                    <div class="role-name">+</div>
+                    <div class="role-members">9 Members</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+        <!-- DITTO -->
+        <div class="role-item">
+            <div class="role-left">
+                <div class="avatar darkgray">👤</div>
+                <div class="role-info">
+                    <div class="role-name">Ditto</div>
+                    <div class="role-members">1 Member</div>
+                </div>
+            </div>
+            <div class="chevron">›</div>
+        </div>
+
+    </div>
 </div>
 
 </body>
-</html>
+            </html>
