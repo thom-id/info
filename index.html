@@ -3,87 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri Bimbel Hari Senin</title>
+    <title>Struktur Server Discord</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            width: 300px;
-            position: relative; /* Penting agar teks bisa menimpa gambar */
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Gambar di dalam kartu */
-        .card img {
-            width: 100%;
-            height: 350px; /* Tinggi tetap agar foto seimbang */
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Kotak teks overlay */
-        .overlay-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px;
+        * {
             box-sizing: border-box;
-            background: rgba(0, 0, 0, 0.6); /* Latar belakang hitam transparan */
-            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #1e1f22; /* Warna background Discord Mobile */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #dbdee1;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px; /* Ukuran layar HP */
+            background-color: #2b2d31;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header Pencarian */
+        .search-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #1e1f22;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 20px;
+            color: #949ba4;
+            font-size: 14px;
+            cursor: text;
+        }
+        .search-header span {
             font-size: 16px;
-            font-weight: bold;
+        }
+
+        /* Kategori */
+        .category {
+            margin-bottom: 16px;
+        }
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #949ba4;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+        .category-title .arrow {
+            font-size: 10px;
+            opacity: 0.7;
+        }
+
+        /* Channel Item */
+        .channel {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #b5bac1;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            margin-bottom: 2px;
+        }
+        .channel:hover {
+            background-color: #35373c;
+            color: #f2f3f5;
+        }
+
+        /* Icon */
+        .channel-icon {
+            width: 18px;
             text-align: center;
+            font-size: 15px;
+            color: #949ba4;
+            flex-shrink: 0;
+        }
+
+        /* Emoji di dalam tanda kurung */
+        .bracket-emoji {
+            font-size: 12px;
+            background-color: #1e1f22;
+            border-radius: 4px;
+            padding: 0 4px;
+            margin-right: 4px;
+            display: inline-block;
+        }
+
+        /* Khusus Voice Channel */
+        .channel.voice .channel-icon {
+            color: #949ba4;
         }
     </style>
 </head>
 <body>
 
-    <h1>Galeri Bimbel Hari Senin</h1></h1>
+<div class="container">
 
-    <div class="gallery">
-        
-        <!-- Foto 1: Nadia Sakit Mata -->
-        <div class="card">
-            <img src="https://cdn.phototourl.com/free/2026-09-07-e62e3c26-37cb-4c44-b5b5-cbdcd0543a8b.jpg" alt="Foto HP di atas meja merah">
-            <div class="overlay-text">Nadia Sakit Mata</div>
-        </div>
-
-        <!-- Foto 2: Afif Ganteng -->
-        <div class="card">
-            <img src="https://cdn.phototourl.com/free/2026-09-07-ba604272-d72f-49aa-b6ca-82deacc927a3.jpg" alt="Foto Wanita Berhijab">
-            <div class="overlay-text">Afif Ganteng</div>
-        </div>
-
+    <!-- Search Bar -->
+    <div class="search-header">
+        <span>🔍</span> Search
     </div>
+
+    <!-- ARRIVAL -->
+    <div class="category">
+        <div class="category-title">▼ ARRIVAL</div>
+        <div class="channel"><span class="channel-icon">#</span>「👾」welcome</div>
+        <div class="channel"><span class="channel-icon">📢</span>「📢」announcement</div>
+        <div class="channel"><span class="channel-icon">📋</span>「📖」rules</div>
+        <div class="channel"><span class="channel-icon">📢</span>「🎉」giveaway</div>
+        <div class="channel"><span class="channel-icon">📢</span>「📅」weekly-event</div>
+        <div class="channel"><span class="channel-icon">#</span>「🔔」update</div>
+        <div class="channel"><span class="channel-icon">#</span>「⛩️」online-players</div>
+    </div>
+
+    <!-- INFORMATION -->
+    <div class="category">
+        <div class="category-title">▼ INFORMATION</div>
+        <div class="channel"><span class="channel-icon">📢</span>「📢」announcement</div>
+        <div class="channel"><span class="channel-icon">📋</span>「📖」rules</div>
+        <div class="channel"><span class="channel-icon">📢</span>「🎉」giveaway</div>
+        <div class="channel"><span class="channel-icon">📢</span>「📅」weekly-event</div>
+        <div class="channel"><span class="channel-icon">#</span>「🔔」update</div>
+        <div class="channel"><span class="channel-icon">#</span>「⛩️」online-players</div>
+    </div>
+
+    <!-- HOW TO PLAY -->
+    <div class="category">
+        <div class="category-title">▼ HOW TO PLAY</div>
+        <div class="channel"><span class="channel-icon">#</span>「🎮」how-to-play</div>
+        <div class="channel"><span class="channel-icon">#</span>「💡」how-to-profit</div>
+    </div>
+
+    <!-- GENERAL -->
+    <div class="category">
+        <div class="category-title">▼ GENERAL</div>
+        <div class="channel"><span class="channel-icon">#</span>「💬」chat-staff</div>
+        <div class="channel"><span class="channel-icon">#</span>「💬」chat</div>
+        <div class="channel"><span class="channel-icon">#</span>「📸」media</div>
+        <div class="channel"><span class="channel-icon">#</span>「📮」suggestion</div>
+        <div class="channel"><span class="channel-icon">#</span>「⚠️」tickets</div>
+        <div class="channel"><span class="channel-icon">#</span>「🎧」bug-report</div>
+        <div class="channel"><span class="channel-icon">#</span>「🤖」bot-command</div>
+    </div>
+
+    <!-- PROMOTE -->
+    <div class="category">
+        <div class="category-title">▼ PROMOTE</div>
+        <div class="channel"><span class="channel-icon">#</span>「📌」tiktok-promote</div>
+        <div class="channel"><span class="channel-icon">📢</span>「⚪」live-streaming</div>
+    </div>
+
+    <!-- ROLE + ASSET -->
+    <div class="category">
+        <div class="category-title">▼ ROLE + ASSET</div>
+        <div class="channel"><span class="channel-icon">#</span>「💳」cicilan-role-citem</div>
+        <div class="channel"><span class="channel-icon">#</span>「🛒」price-roles</div>
+        <div class="channel"><span class="channel-icon">#</span>「🛒」custom-items</div>
+        <div class="channel"><span class="channel-icon">#</span>「🛒」title-asset-mag</div>
+        <div class="channel"><span class="channel-icon">#</span>「💵」purchase</div>
+        <div class="channel"><span class="channel-icon">#</span>「💰」payment</div>
+    </div>
+
+    <!-- MARKETPLACE -->
+    <div class="category">
+        <div class="category-title">▼ MARKETPLACE</div>
+        <div class="channel"><span class="channel-icon">#</span>「📜」rmt-rules</div>
+        <div class="channel"><span class="channel-icon">#</span>「🔑」reseller</div>
+        <div class="channel"><span class="channel-icon">#</span>「🔒」buy-sell-lock</div>
+        <div class="channel"><span class="channel-icon">#</span>「🌍」buy-sell-world</div>
+        <div class="channel"><span class="channel-icon">#</span>「📚」buy-sell-item</div>
+        <div class="channel"><span class="channel-icon">#</span>「🔧」buy-sell-service</div>
+    </div>
+
+    <!-- MUSIC & VOICE -->
+    <div class="category">
+        <div class="category-title">▼ MUSIC & VOICE</div>
+        <div class="channel"><span class="channel-icon">#</span>「🎵」music-command</div>
+        <div class="channel voice"><span class="channel-icon">🔊</span>「➕」Join to Create</div>
+        <div class="channel voice"><span class="channel-icon">🔊</span>「🀄」Server Leadership</div>
+    </div>
+
+</div>
 
 </body>
 </html>
