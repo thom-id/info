@@ -15,7 +15,6 @@
         /* Desain Background Granit Blue, White & Pink */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Perpaduan Biru Granit Gelap, Biru Muda, Pink Lembut, dan sentuhan Putih */
             background: linear-gradient(135deg, #1e2a38 0%, #3a6073 35%, #a2c1d1 65%, #f4d8e0 100%);
             background-attachment: fixed;
             color: #333;
@@ -26,7 +25,7 @@
 
         /* Desain Judul */
         header {
-            margin-bottom: 50px;
+            margin-bottom: 60px; /* Jarak agak jauh ke foto pertama */
             margin-top: 20px;
         }
 
@@ -38,11 +37,10 @@
             
             /* Efek Teks Gradasi Biru, Putih, Pink */
             background: linear-gradient(to right, #4ca1af, #ffffff, #e6a8b8);
-            -webkit-background-clip: text; /* Untuk Chrome, Safari, Edge */
+            -webkit-background-clip: text;
             background-clip: text;
-            color: transparent; /* Membuat warna dasar teks menjadi transparan agar gradasi terlihat */
+            color: transparent;
             
-            /* Bayangan tipis agar teks timbul dan tetap terbaca */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
         }
 
@@ -54,24 +52,26 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
         }
 
-        /* Desain Galeri */
+        /* Desain Galeri (Disusun ke bawah) */
         .gallery {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
+            flex-direction: column; /* Membuat susunan vertikal ke bawah */
+            align-items: center;    /* Menaruh foto di tengah */
+            gap: 50px;              /* Jarak antar foto ke bawah */
+            max-width: 100%;
             margin: 0 auto;
         }
 
         /* Desain Card Foto */
         .card {
-            background: rgba(255, 255, 255, 0.95); /* Putih hampir solid */
+            background: rgba(255, 255, 255, 0.95);
             padding: 15px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(230, 168, 184, 0.4), 0 5px 15px rgba(44, 62, 80, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 350px;
+            /* Lebar maksimal foto di layar besar */
+            width: 100%;
+            max-width: 400px; 
             backdrop-filter: blur(5px);
         }
 
@@ -80,11 +80,13 @@
             box-shadow: 0 15px 35px rgba(230, 168, 184, 0.6), 0 10px 25px rgba(44, 62, 80, 0.7);
         }
 
+        /* Pengaturan Ukuran Foto 2:3 */
         .card img {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            aspect-ratio: 2 / 3; /* Mengunci rasio lebar 2 dan tinggi 3 */
+            object-fit: cover;   /* Agar gambar tidak gepeng, melainkan terpotong rapi */
             border-radius: 10px;
+            display: block;
         }
 
         /* Desain Responsif untuk HP */
@@ -93,11 +95,14 @@
                 font-size: 2rem; 
                 line-height: 1.2;
             }
-            .card {
-                max-width: 100%;
+            header {
+                margin-bottom: 40px;
             }
-            .card img {
-                height: 300px;
+            .gallery {
+                gap: 30px; /* Jarak antar foto di HP sedikit dirapatkan */
+            }
+            .card {
+                max-width: 90%; /* Di HP, foto memenuhi 90% lebar layar */
             }
         }
     </style>
@@ -105,7 +110,6 @@
 <body>
 
     <header>
-        <!-- Teks dengan efek gradasi Biru, Putih, Pink -->
         <h1>Welcome To Galery Nururrahmi</h1>
         <p class="subtitle">A collection of moments & memories.</p>
     </header>
