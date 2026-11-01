@@ -3,444 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Roles Discord</title>
+    <title>Galery Nururrahmi</title>
     <style>
+        /* Reset dasar */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        /* Desain Background Granit Blue, White & Pink */
         body {
-            background-color: #000000; /* Background hitam pekat seperti di HP */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Perpaduan Biru Granit Gelap, Biru Muda, Pink Lembut, dan sentuhan Putih */
+            background: linear-gradient(135deg, #1e2a38 0%, #3a6073 35%, #a2c1d1 65%, #f4d8e0 100%);
+            background-attachment: fixed;
+            color: #333;
+            text-align: center;
+            padding: 40px 20px;
             min-height: 100vh;
         }
 
-        .container {
-            width: 100%;
-            max-width: 400px; /* Ukuran layar HP */
-            background-color: #000000;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 20px;
+        /* Desain Judul */
+        header {
+            margin-bottom: 50px;
+            margin-top: 20px;
         }
 
-        /* Header Atas */
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 20px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-        .top-bar .back-btn, .top-bar .add-btn {
-            font-size: 20px;
-            color: #b5bac1;
-            cursor: pointer;
-        }
-
-        /* Search Bar */
-        .search-box {
-            margin: 0 16px 16px 16px;
-            background-color: #1a1a1a;
-            border: 1px solid #2b2d31;
-            border-radius: 8px;
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #949ba4;
-            font-size: 15px;
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            
+            /* Efek Teks Gradasi Biru, Putih, Pink */
+            background: linear-gradient(to right, #4ca1af, #ffffff, #e6a8b8);
+            -webkit-background-clip: text; /* Untuk Chrome, Safari, Edge */
+            background-clip: text;
+            color: transparent; /* Membuat warna dasar teks menjadi transparan agar gradasi terlihat */
+            
+            /* Bayangan tipis agar teks timbul dan tetap terbaca */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
         }
 
-        /* List Role */
-        .role-list {
-            display: flex;
-            flex-direction: column;
-            background-color: #111214;
+        p.subtitle {
+            color: #ffffff;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
         }
 
-        .role-item {
+        /* Desain Galeri */
+        .gallery {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 20px;
-            border-bottom: 1px solid #1e1f22;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .role-item:hover {
-            background-color: #1e1f22;
-        }
-
-        /* Bagian Kiri (Avatar + Nama) */
-        .role-left {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        /* Avatar Bulat */
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-            background-color: #36393f; /* Default abu-abu */
-        }
-        
-        /* Warna Avatar Khusus */
-        .avatar.white { background-color: #ffffff; color: #000; }
-        .avatar.brown { background-color: #8b5a2b; }
-        .avatar.red { background-color: #ff0000; }
-        .avatar.lightblue { background-color: #b5c7e8; color: #000; }
-        .avatar.green { background-color: #00ff00; color: #000; }
-        .avatar.pink { background-color: #ffb6c1; color: #000; }
-        .avatar.blue { background-color: #0055ff; }
-        .avatar.orange { background-color: #ffaa00; color: #000; }
-        .avatar.yellow { background-color: #ffdd00; color: #000; }
-        .avatar.purple { background-color: #aa00ff; }
-        .avatar.magenta { background-color: #ff00aa; }
-        .avatar.darkgray { background-color: #36393f; }
-
-        /* Info Teks */
-        .role-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .role-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: #f2f3f5;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .role-members {
-            font-size: 12px;
-            color: #949ba4;
-            margin-top: 2px;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* Icon Gembok */
-        .lock-icon {
-            font-size: 12px;
-            color: #949ba4;
+        /* Desain Card Foto */
+        .card {
+            background: rgba(255, 255, 255, 0.95); /* Putih hampir solid */
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(230, 168, 184, 0.4), 0 5px 15px rgba(44, 62, 80, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 350px;
+            backdrop-filter: blur(5px);
         }
 
-        /* Panah Kanan */
-        .chevron {
-            color: #949ba4;
-            font-size: 18px;
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(230, 168, 184, 0.6), 0 10px 25px rgba(44, 62, 80, 0.7);
+        }
+
+        .card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Desain Responsif untuk HP */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; 
+                line-height: 1.2;
+            }
+            .card {
+                max-width: 100%;
+            }
+            .card img {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    
-    <!-- Header -->
-    <div class="top-bar">
-        <div class="back-btn">←</div>
-        <div>Server Roles</div>
-        <div class="add-btn">+</div>
+    <header>
+        <!-- Teks dengan efek gradasi Biru, Putih, Pink -->
+        <h1>Welcome To Galery Nururrahmi</h1>
+        <p class="subtitle">A collection of moments & memories.</p>
+    </header>
+
+    <div class="gallery">
+        <!-- Foto 1 (Di dalam mobil) -->
+        <div class="card">
+            <img src="https://cdn.phototourl.com/member/2026-11-01-b2c73052-06ee-44f3-9463-a9dee9dae509.jpg" alt="Inside the car">
+        </div>
+
+        <!-- Foto 2 (Aesthetic selfie) -->
+        <div class="card">
+            <img src="https://cdn.phototourl.com/member/2026-11-01-b8ba5f3c-b6e6-4d6e-9f4a-2f44a7eaba8c.png" alt="Aesthetic selfie">
+        </div>
+
+        <!-- Foto 3 (Hijab putih) -->
+        <div class="card">
+            <img src="https://cdn.phototourl.com/member/2026-11-01-592017cf-53fb-450d-8dfd-5607d06ec278.png" alt="White hijab portrait">
+        </div>
     </div>
-
-    <!-- Search -->
-    <div class="search-box">
-        <span>🔍</span> Search
-    </div>
-
-    <!-- Daftar Role -->
-    <div class="role-list">
-        
-        <!-- FOUNDER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar darkgray">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Founder</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- KOYA -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Koya</div>
-                    <div class="role-members">1 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- GIVEAWAY BOAT -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Giveaway Boat</div>
-                    <div class="role-members">1 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- CARL-BOT -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">carl-bot</div>
-                    <div class="role-members">1 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- TEMPVOICE -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">TempVoice</div>
-                    <div class="role-members">1 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- JOCKIE MUSIC -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Jockie Music</div>
-                    <div class="role-members">1 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- TICKET TOOL -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Ticket Tool</div>
-                    <div class="role-members">1 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- CODER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar darkgray">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Coder</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- STAFF -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar darkgray">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Staff</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- HELPER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar darkgray">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Helper</div>
-                    <div class="role-members">0 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- TOP SPENDER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar white"di>👤</div>
-                <div class="role-info">
-                    <div class="role-name">Top Spender</div>
-                    <div class="role-members">0 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- RESELLER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar red">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Reseller</div>
-                    <div class="role-members">0 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- MIDDLEMAN -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Middleman</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- UNLIMITED BLOCK -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar green">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Unlimited Block</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- DESIGNER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar pink">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Designer</div>
-                    <div class="role-members">0 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- CONTENT CREATOR -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar blue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Content Creator</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- SUPER DEVELOPER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar orange">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Super Developer</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- DEVELOPER -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar yellow">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Developer</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- MODERATOR -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar purple">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Moderator</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- VIP -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar lightblue">👤</div>
-                <div class="role-info">
-                    <div class="role-name">VIP</div>
-                    <div class="role-members">0 Member</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- GIRL -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar magenta">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Girl</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- Your Server Name -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar yellow">👤</div>
-                <div class="role-info">
-                    <div class="role-name">Your Server Name</div>
-                    <div class="role-members">0 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-        <!-- ( BOT ) -->
-        <div class="role-item">
-            <div class="role-left">
-                <div class="avatar white">👤</div>
-                <div class="role-info">
-                    <div class="role-name">BOT</div>
-                    <div class="role-members">6 Members</div>
-                </div>
-            </div>
-            <div class="chevron">›</div>
-        </div>
-
-    </div>
-</div>
 
 </body>
-            </html>
+</html>
