@@ -12,25 +12,63 @@
             box-sizing: border-box;
         }
 
-        /* Desain Background Granit Blue, White & Pink */
+        /* Desain Background Granit Blue & Pink */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e2a38 0%, #3a6073 35%, #a2c1d1 65%, #f4d8e0 100%);
+            /* Perpaduan Biru Granit dan Pink */
+            background: linear-gradient(135deg, #1e2a38 0%, #3a6073 40%, #d18f9d 100%);
             background-attachment: fixed;
             color: #333;
             text-align: center;
             padding: 40px 20px;
             min-height: 100vh;
+            overflow-x: hidden; /* Mencegah layar bisa di-scroll ke samping */
+            position: relative;
         }
 
-        /* Desain Judul */
+        /* =========================================
+           EFEK TEKS BERJALAN (MARQUEE) NURURRAHMI
+           ========================================= */
+        .marquee-container {
+            position: fixed; /* Menempel di layar, tidak ikut ter-scroll */
+            top: 50%;        /* Posisi di tengah layar */
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            overflow: hidden;
+            z-index: -1;     /* Di belakang foto */
+            pointer-events: none; /* Tidak bisa diklik */
+            opacity: 0.15;   /* Transparan agar tidak menutupi foto */
+        }
+
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 8rem; /* Ukuran teks sangat besar */
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            animation: scrollKanan 20s linear infinite; /* Animasi berjalan */
+        }
+
+        /* Animasi dari kiri ke kanan */
+        @keyframes scrollKanan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+
+        /* =========================================
+           DESAIN JUDUL UTAMA
+           ========================================= */
         header {
-            margin-bottom: 60px; /* Jarak agak jauh ke foto pertama */
+            position: relative;
+            z-index: 10;
+            margin-bottom: 60px;
             margin-top: 20px;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             letter-spacing: 2px;
             margin-bottom: 15px;
             font-weight: 800;
@@ -41,91 +79,96 @@
             background-clip: text;
             color: transparent;
             
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
         }
 
         p.subtitle {
             color: #ffffff;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             letter-spacing: 1px;
             font-style: italic;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
-        /* Desain Galeri (Disusun ke bawah) */
+        /* =========================================
+           DESAIN GALERI & FOTO
+           ========================================= */
         .gallery {
+            position: relative;
+            z-index: 10; /* Foto berada di atas teks berjalan */
             display: flex;
-            flex-direction: column; /* Membuat susunan vertikal ke bawah */
-            align-items: center;    /* Menaruh foto di tengah */
-            gap: 50px;              /* Jarak antar foto ke bawah */
+            flex-direction: column;
+            align-items: center;
+            gap: 60px; /* Jarak antar foto lebih lebar */
             max-width: 100%;
             margin: 0 auto;
         }
 
-        /* Desain Card Foto */
         .card {
             background: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(230, 168, 184, 0.4), 0 5px 15px rgba(44, 62, 80, 0.5);
+            padding: 20px; /* Bingkai putih lebih tebal */
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(230, 168, 184, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* Lebar maksimal foto di layar besar */
+            
+            /* UKURAN FOTO DIBESARKAN */
             width: 100%;
-            max-width: 400px; 
-            backdrop-filter: blur(5px);
+            max-width: 650px; /* Lebar maksimal foto */
+            backdrop-filter: blur(10px);
         }
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(230, 168, 184, 0.6), 0 10px 25px rgba(44, 62, 80, 0.7);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 10px 25px rgba(230, 168, 184, 0.5);
         }
 
-        /* Pengaturan Ukuran Foto 2:3 */
         .card img {
             width: 100%;
-            aspect-ratio: 2 / 3; /* Mengunci rasio lebar 2 dan tinggi 3 */
-            object-fit: cover;   /* Agar gambar tidak gepeng, melainkan terpotong rapi */
-            border-radius: 10px;
+            aspect-ratio: 2 / 3; /* Rasio 2:3 */
+            object-fit: cover;
+            border-radius: 12px;
             display: block;
         }
 
         /* Desain Responsif untuk HP */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem; 
-                line-height: 1.2;
-            }
-            header {
-                margin-bottom: 40px;
-            }
-            .gallery {
-                gap: 30px; /* Jarak antar foto di HP sedikit dirapatkan */
-            }
+            h1 { font-size: 2.2rem; line-height: 1.2; }
+            header { margin-bottom: 40px; }
+            .marquee-text { font-size: 4rem; } /* Teks berjalan mengecil di HP */
+            .gallery { gap: 40px; }
             .card {
-                max-width: 90%; /* Di HP, foto memenuhi 90% lebar layar */
+                max-width: 95%; /* Hampir penuh di layar HP */
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Teks Nururrahmi Berjalan di Belakang -->
+    <div class="marquee-container">
+        <div class="marquee-text">NURURRAHMI • NURURRAHMI • NURURRAHMI •</div>
+    </div>
+
+    <!-- Judul Depan -->
     <header>
         <h1>Welcome To Galery Nururrahmi</h1>
         <p class="subtitle">A collection of moments & memories.</p>
     </header>
 
+    <!-- Galeri Foto -->
     <div class="gallery">
-        <!-- Foto 1 (Di dalam mobil) -->
+        <!-- Foto 1 -->
         <div class="card">
             <img src="https://cdn.phototourl.com/member/2026-11-01-b2c73052-06ee-44f3-9463-a9dee9dae509.jpg" alt="Inside the car">
         </div>
 
-        <!-- Foto 2 (Aesthetic selfie) -->
+        <!-- Foto 2 -->
         <div class="card">
             <img src="https://cdn.phototourl.com/member/2026-11-01-b8ba5f3c-b6e6-4d6e-9f4a-2f44a7eaba8c.png" alt="Aesthetic selfie">
         </div>
 
-        <!-- Foto 3 (Hijab putih) -->
+        <!-- Foto 3 -->
         <div class="card">
             <img src="https://cdn.phototourl.com/member/2026-11-01-592017cf-53fb-450d-8dfd-5607d06ec278.png" alt="White hijab portrait">
         </div>
