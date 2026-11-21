@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galery Nururrahmi</title>
+    <title>Healing Space 🌿</title>
     <style>
-        /* Reset dasar */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Desain Background Granit Blue & Pink */
+        /* Background alam: langit senja lembut → hijau dedaunan */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e2a38 0%, #3a6073 40%, #d18f9d 100%);
+            background: linear-gradient(160deg, #a8d8ea 0%, #c7f0db 35%, #7fb77e 70%, #4e7a5a 100%);
             background-attachment: fixed;
-            color: #333;
+            color: #2e3d33;
             text-align: center;
             padding: 40px 20px;
             min-height: 100vh;
@@ -25,206 +20,168 @@
             position: relative;
         }
 
-        /* =========================================
-           EFEK BUNGA JATUH (FLOWER RAIN)
-           ========================================= */
+        /* ===== EFEK DAUN & KELIP JATUH LEMBUT ===== */
         .flower-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            overflow: hidden;
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 50; overflow: hidden;
         }
-
         .flower {
-            position: absolute;
-            top: -10%;
-            font-size: 2rem;
+            position: absolute; top: -10%;
+            opacity: 0.7;
             animation-name: fall;
-            animation-timing-function: linear;
+            animation-timing-function: ease-in-out;
             animation-iteration-count: infinite;
-            opacity: 0.8;
         }
-
-        /* Animasi jatuh dan bergoyang */
         @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg) translateX(0); }
-            25% { transform: translateY(25vh) rotate(45deg) translateX(30px); }
-            50% { transform: translateY(50vh) rotate(90deg) translateX(-30px); }
-            75% { transform: translateY(75vh) rotate(135deg) translateX(30px); }
-            100% { transform: translateY(110vh) rotate(360deg) translateX(0); }
+            0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+            10%  { opacity: 0.8; }
+            25%  { transform: translateY(25vh) rotate(40deg) translateX(40px); }
+            50%  { transform: translateY(50vh) rotate(80deg) translateX(-40px); }
+            75%  { transform: translateY(75vh) rotate(120deg) translateX(40px); }
+            100% { transform: translateY(110vh) rotate(180deg) translateX(0); opacity: 0; }
         }
+        .flower:nth-child(1)  { left: 8%;  animation-duration: 12s; animation-delay: 0s;   font-size: 1.6rem; }
+        .flower:nth-child(2)  { left: 20%; animation-duration: 15s; animation-delay: 2s;   font-size: 1.3rem; }
+        .flower:nth-child(3)  { left: 33%; animation-duration: 11s; animation-delay: 4s;   font-size: 1.5rem; }
+        .flower:nth-child(4)  { left: 47%; animation-duration: 17s; animation-delay: 1s;   font-size: 1.2rem; }
+        .flower:nth-child(5)  { left: 60%; animation-duration: 13s; animation-delay: 5s;   font-size: 1.8rem; }
+        .flower:nth-child(6)  { left: 72%; animation-duration: 16s; animation-delay: 3s;   font-size: 1.1rem; }
+        .flower:nth-child(7)  { left: 84%; animation-duration: 14s; animation-delay: 6s;   font-size: 1.4rem; }
+        .flower:nth-child(8)  { left: 92%; animation-duration: 18s; animation-delay: 2.5s; font-size: 1.3rem; }
+        .flower:nth-child(9)  { left: 15%; animation-duration: 20s; animation-delay: 7s;   font-size: 1rem;   }
+        .flower:nth-child(10) { left: 55%; animation-duration: 19s; animation-delay: 8s;   font-size: 1.2rem; }
 
-        /* Variasi Waktu Jatuh (DIPERCEPAT) */
-        .flower:nth-child(1) { left: 10%; animation-duration: 5s; animation-delay: 0s; font-size: 2.5rem; }
-        .flower:nth-child(2) { left: 25%; animation-duration: 6.5s; animation-delay: 1s; font-size: 1.8rem; }
-        .flower:nth-child(3) { left: 40%; animation-duration: 4.5s; animation-delay: 2.5s; font-size: 2.2rem; }
-        .flower:nth-child(4) { left: 55%; animation-duration: 7.5s; animation-delay: 0.5s; font-size: 2rem; }
-        .flower:nth-child(5) { left: 70%; animation-duration: 5.5s; animation-delay: 3s; font-size: 2.8rem; }
-        .flower:nth-child(6) { left: 85%; animation-duration: 7s; animation-delay: 1.5s; font-size: 1.5rem; }
-        .flower:nth-child(7) { left: 15%; animation-duration: 8s; animation-delay: 4s; font-size: 2rem; }
-        .flower:nth-child(8) { left: 60%; animation-duration: 5s; animation-delay: 3.5s; font-size: 2.4rem; }
-        .flower:nth-child(9) { left: 90%; animation-duration: 6s; animation-delay: 5s; font-size: 1.9rem; }
-        .flower:nth-child(10) { left: 35%; animation-duration: 8.5s; animation-delay: 6s; font-size: 2.1rem; }
-        .flower:nth-child(11) { left: 50%; animation-duration: 5.5s; animation-delay: 1.2s; font-size: 2.3rem; }
-        .flower:nth-child(12) { left: 80%; animation-duration: 7s; animation-delay: 2.8s; font-size: 1.7rem; }
-
-        /* =========================================
-           EFEK TEKS BERJALAN (MARQUEE) NURURRAHMI
-           ========================================= */
+        /* ===== MARQUEE KATA HEALING ===== */
         .marquee-container {
-            position: fixed;
-            top: 50%;
-            left: 0;
-            width: 100%;
+            position: fixed; top: 50%; left: 0; width: 100%;
             transform: translateY(-50%);
-            overflow: hidden;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.15;
+            overflow: hidden; z-index: -1; pointer-events: none;
+            opacity: 0.10;
         }
-
         .marquee-text {
-            display: inline-block;
-            white-space: nowrap;
-            font-size: 8rem;
-            font-weight: 900;
-            color: #ffffff;
-            text-transform: uppercase;
-            animation: scrollKanan 20s linear infinite;
+            display: inline-block; white-space: nowrap;
+            font-size: 7rem; font-weight: 900;
+            color: #ffffff; text-transform: uppercase;
+            letter-spacing: 8px;
+            animation: scrollKanan 40s linear infinite;
         }
-
         @keyframes scrollKanan {
-            0% { transform: translateX(-100%); }
+            0%   { transform: translateX(-100%); }
             100% { transform: translateX(100vw); }
         }
 
-        /* =========================================
-           DESAIN JUDUL UTAMA
-           ========================================= */
-        header {
-            position: relative;
-            z-index: 10;
-            margin-bottom: 60px;
-            margin-top: 20px;
-        }
-
+        /* ===== JUDUL ===== */
+        header { position: relative; z-index: 10; margin-bottom: 55px; margin-top: 20px; }
         h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-weight: 800;
-            background: linear-gradient(to right, #4ca1af, #ffffff, #e6a8b8);
-            -webkit-background-clip: text;
-            background-clip: text;
+            font-size: 3rem; letter-spacing: 2px; margin-bottom: 15px; font-weight: 800;
+            background: linear-gradient(to right, #2e7d5b, #ffffff, #9ad0c2);
+            -webkit-background-clip: text; background-clip: text;
             color: transparent;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
         }
-
         p.subtitle {
-            color: #ffffff;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            font-style: italic;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            color: #ffffff; font-size: 1.15rem;
+            letter-spacing: 1px; font-style: italic; line-height: 1.5;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.45);
         }
 
-        /* =========================================
-           DESAIN GALERI & FOTO
-           ========================================= */
+        /* ===== GALERI ===== */
         .gallery {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 60px;
-            max-width: 100%;
-            margin: 0 auto;
+            position: relative; z-index: 10;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 65px; max-width: 100%; margin: 0 auto;
         }
-
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(230, 168, 184, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-            max-width: 650px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 18px;
+            border-radius: 22px;
+            box-shadow: 0 15px 35px rgba(30, 60, 45, 0.35), 0 5px 15px rgba(127, 183, 126, 0.35);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            width: 100%; max-width: 650px;
             backdrop-filter: blur(10px);
         }
-
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 10px 25px rgba(230, 168, 184, 0.5);
+            box-shadow: 0 22px 45px rgba(30, 60, 45, 0.5), 0 10px 25px rgba(127, 183, 126, 0.5);
         }
-
         .card img {
-            width: 100%;
-            aspect-ratio: 2 / 3;
-            object-fit: cover;
-            border-radius: 12px;
-            display: block;
+            width: 100%; aspect-ratio: 2 / 3;
+            object-fit: cover; border-radius: 14px; display: block;
+        }
+        .card .caption {
+            margin-top: 14px; font-size: 1rem; font-style: italic;
+            color: #3e5c4a; letter-spacing: 0.5px; line-height: 1.4;
         }
 
-        /* Desain Responsif untuk HP */
+        /* Responsif */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; line-height: 1.2; }
+            h1 { font-size: 2.1rem; line-height: 1.2; }
             header { margin-bottom: 40px; }
-            .marquee-text { font-size: 4rem; }
+            .marquee-text { font-size: 3.5rem; letter-spacing: 4px; }
             .gallery { gap: 40px; }
-            .card {
-                max-width: 95%;
-                padding: 10px;
-            }
-            .flower { font-size: 1.5rem !important; }
+            .card { max-width: 95%; padding: 10px; }
+            .flower { font-size: 1.2rem !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Efek Bunga Jatuh -->
+    <!-- Efek daun & kelopak jatuh lembut -->
     <div class="flower-container">
-        <div class="flower">🌷</div>
-        <div class="flower">🌸</div>
-        <div class="flower">🌹</div>
-        <div class="flower">🌺</div>
-        <div class="flower">🌻</div>
-        <div class="flower">🌼</div>
-        <div class="flower">🪻</div>
-        <div class="flower">🪷</div>
-        <div class="flower">💐</div>
-        <div class="flower">🌸</div>
-        <div class="flower">🌷</div>
-        <div class="flower">🌹</div>
+        <div class="flower">🍃</div>
+        <div class="flower">🌿</div>
+        <div class="flower">🍂</div>
+        <div class="flower">✨</div>
+        <div class="flower">🍃</div>
+        <div class="flower">🌱</div>
+        <div class="flower">✨</div>
+        <div class="flower">🌿</div>
+        <div class="flower">🍃</div>
+        <div class="flower">🍂</div>
     </div>
 
-    <!-- Teks Nururrahmi Berjalan di Belakang -->
+    <!-- Marquee kata healing -->
     <div class="marquee-container">
-        <div class="marquee-text">NURURRAHMI • NURURRAHMI • NURURRAHMI • NURURRAHMI • NURURRAHMI • NURURRAHMI • NURURRAHMI •</div>
+        <div class="marquee-text">DAMAI • TENANG • SYUKUR • IKHLAS • NIKMATI • DAMAI • TENANG • SYUKUR •</div>
     </div>
 
-    <!-- Judul Depan -->
+    <!-- Judul -->
     <header>
-        <h1>Welcome To Galery Nururrahmi</h1>
-        <p class="subtitle">A collection of moments & memories.</p>
+        <h1>Healing Space 🌿</h1>
+        <p class="subtitle">Tarik napas… lepaskan. <br>Setiap momen layak untuk dinikmati.</p>
     </header>
 
-    <!-- Galeri Foto -->
+    <!-- Galeri -->
     <div class="gallery">
         <div class="card">
-            <img src="https://cdn.phototourl.com/member/2026-11-01-b2c73052-06ee-44f3-9463-a9dee9dae509.jpg" alt="Inside the car">
+            <img src="https://cdn.phototourl.com/anon/2026-11-21-103a8de7-5b80-4b7f-a6b1-9aae1ccc7a6f.jpg" alt="Healing moment 1">
+            <div class="caption">"Berhenti sejenak, dunia tidak akan hilang."</div>
         </div>
 
         <div class="card">
-            <img src="https://cdn.phototourl.com/member/2026-11-01-b8ba5f3c-b6e6-4d6e-9f4a-2f44a7eaba8c.png" alt="Aesthetic selfie">
+            <img src="https://cdn.phototourl.com/anon/2026-11-21-d419a222-fe12-48ac-8c44-0742be991e13.jpg" alt="Healing moment 2">
+            <div class="caption">"Ketenangan dimulai dari pikiran yang tenang."</div>
         </div>
 
         <div class="card">
-            <img src="https://cdn.phototourl.com/member/2026-11-01-592017cf-53fb-450d-8dfd-5607d06ec278.png" alt="White hijab portrait">
+            <img src="https://cdn.phototourl.com/anon/2026-11-21-b8faaf9e-c1fc-4230-96a6-7924a1b5befa.jpg" alt="Healing moment 3">
+            <div class="caption">"Nikmati prosesnya, bukan hanya hasilnya."</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.phototourl.com/anon/2026-11-21-f97d233c-bfef-4073-a816-abac77b67c3f.jpg" alt="Healing moment 4">
+            <div class="caption">"Setiap langkah kecil adalah bagian dari penyembuhan."</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.phototourl.com/anon/2026-11-21-99c35d43-c50d-40a8-8c4e-7d3503502bb3.jpg" alt="Healing moment 5">
+            <div class="caption">"Bahagia itu sederhana: cukup hadir di saat ini."</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.phototourl.com/anon/2026-11-21-d2f277d4-0df6-4bff-8b7d-fa83b439503b.jpg" alt="Healing moment 6">
+            <div class="caption">"Kamu sudah sejauh ini—itu luar biasa."</div>
         </div>
     </div>
 
