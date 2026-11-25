@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healing Space 🌿</title>
+    <title>Wanita Tercantik di UH Mingle 🌸</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Background alam: langit senja lembut → hijau dedaunan */
+        /* Background feminin: pink rose lembut → lavender → peach */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(160deg, #a8d8ea 0%, #c7f0db 35%, #7fb77e 70%, #4e7a5a 100%);
+            background: linear-gradient(160deg, #ffe0ec 0%, #ffd1e8 30%, #f7c8f0 60%, #e6c7ff 100%);
             background-attachment: fixed;
-            color: #2e3d33;
+            color: #5a3d55;
             text-align: center;
             padding: 40px 20px;
             min-height: 100vh;
@@ -20,7 +20,7 @@
             position: relative;
         }
 
-        /* ===== EFEK DAUN & KELIP JATUH LEMBUT ===== */
+        /* ===== EFEK BUNGA 🌷🌸🌹 JATUH DARI ATAS ===== */
         .flower-container {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -28,36 +28,39 @@
         }
         .flower {
             position: absolute; top: -10%;
-            opacity: 0.7;
+            opacity: 0.85;
             animation-name: fall;
             animation-timing-function: ease-in-out;
             animation-iteration-count: infinite;
+            filter: drop-shadow(0 2px 4px rgba(255, 120, 180, 0.5));
         }
         @keyframes fall {
             0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
-            10%  { opacity: 0.8; }
+            10%  { opacity: 1; }
             25%  { transform: translateY(25vh) rotate(40deg) translateX(40px); }
             50%  { transform: translateY(50vh) rotate(80deg) translateX(-40px); }
             75%  { transform: translateY(75vh) rotate(120deg) translateX(40px); }
             100% { transform: translateY(110vh) rotate(180deg) translateX(0); opacity: 0; }
         }
-        .flower:nth-child(1)  { left: 8%;  animation-duration: 12s; animation-delay: 0s;   font-size: 1.6rem; }
-        .flower:nth-child(2)  { left: 20%; animation-duration: 15s; animation-delay: 2s;   font-size: 1.3rem; }
-        .flower:nth-child(3)  { left: 33%; animation-duration: 11s; animation-delay: 4s;   font-size: 1.5rem; }
-        .flower:nth-child(4)  { left: 47%; animation-duration: 17s; animation-delay: 1s;   font-size: 1.2rem; }
-        .flower:nth-child(5)  { left: 60%; animation-duration: 13s; animation-delay: 5s;   font-size: 1.8rem; }
-        .flower:nth-child(6)  { left: 72%; animation-duration: 16s; animation-delay: 3s;   font-size: 1.1rem; }
-        .flower:nth-child(7)  { left: 84%; animation-duration: 14s; animation-delay: 6s;   font-size: 1.4rem; }
-        .flower:nth-child(8)  { left: 92%; animation-duration: 18s; animation-delay: 2.5s; font-size: 1.3rem; }
-        .flower:nth-child(9)  { left: 15%; animation-duration: 20s; animation-delay: 7s;   font-size: 1rem;   }
-        .flower:nth-child(10) { left: 55%; animation-duration: 19s; animation-delay: 8s;   font-size: 1.2rem; }
+        .flower:nth-child(1)  { left: 8%;  animation-duration: 12s; animation-delay: 0s;   font-size: 1.8rem; }
+        .flower:nth-child(2)  { left: 20%; animation-duration: 15s; animation-delay: 2s;   font-size: 1.5rem; }
+        .flower:nth-child(3)  { left: 33%; animation-duration: 11s; animation-delay: 4s;   font-size: 1.7rem; }
+        .flower:nth-child(4)  { left: 47%; animation-duration: 17s; animation-delay: 1s;   font-size: 1.4rem; }
+        .flower:nth-child(5)  { left: 60%; animation-duration: 13s; animation-delay: 5s;   font-size: 2rem;   }
+        .flower:nth-child(6)  { left: 72%; animation-duration: 16s; animation-delay: 3s;   font-size: 1.3rem; }
+        .flower:nth-child(7)  { left: 84%; animation-duration: 14s; animation-delay: 6s;   font-size: 1.6rem; }
+        .flower:nth-child(8)  { left: 92%; animation-duration: 18s; animation-delay: 2.5s; font-size: 1.5rem; }
+        .flower:nth-child(9)  { left: 15%; animation-duration: 20s; animation-delay: 7s;   font-size: 1.2rem; }
+        .flower:nth-child(10) { left: 55%; animation-duration: 19s; animation-delay: 8s;   font-size: 1.4rem; }
+        .flower:nth-child(11) { left: 5%;  animation-duration: 16s; animation-delay: 3.5s; font-size: 1.5rem; }
+        .flower:nth-child(12) { left: 78%; animation-duration: 21s; animation-delay: 1.5s; font-size: 1.3rem; }
 
-        /* ===== MARQUEE KATA HEALING ===== */
+        /* ===== MARQUEE KATA FEMININ ===== */
         .marquee-container {
             position: fixed; top: 50%; left: 0; width: 100%;
             transform: translateY(-50%);
             overflow: hidden; z-index: -1; pointer-events: none;
-            opacity: 0.10;
+            opacity: 0.12;
         }
         .marquee-text {
             display: inline-block; white-space: nowrap;
@@ -65,6 +68,7 @@
             color: #ffffff; text-transform: uppercase;
             letter-spacing: 8px;
             animation: scrollKanan 40s linear infinite;
+            text-shadow: 0 0 20px rgba(255, 180, 220, 0.8);
         }
         @keyframes scrollKanan {
             0%   { transform: translateX(-100%); }
@@ -75,15 +79,17 @@
         header { position: relative; z-index: 10; margin-bottom: 55px; margin-top: 20px; }
         h1 {
             font-size: 3rem; letter-spacing: 2px; margin-bottom: 15px; font-weight: 800;
-            background: linear-gradient(to right, #2e7d5b, #ffffff, #9ad0c2);
+            background: linear-gradient(to right, #c9487f, #ff9ec4, #ffffff, #e19cff);
             -webkit-background-clip: text; background-clip: text;
             color: transparent;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+            text-shadow: 2px 2px 10px rgba(255, 120, 180, 0.4);
+            filter: drop-shadow(0 2px 4px rgba(255, 160, 200, 0.5));
         }
         p.subtitle {
-            color: #ffffff; font-size: 1.15rem;
-            letter-spacing: 1px; font-style: italic; line-height: 1.5;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.45);
+            color: #ffffff; font-size: 1.2rem;
+            letter-spacing: 1.5px; font-style: italic; line-height: 1.5;
+            text-shadow: 1px 1px 6px rgba(180, 80, 140, 0.6);
+            font-weight: 500;
         }
 
         /* ===== GALERI ===== */
@@ -93,25 +99,45 @@
             gap: 65px; max-width: 100%; margin: 0 auto;
         }
         .card {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 250, 253, 0.93);
             padding: 18px;
-            border-radius: 22px;
-            box-shadow: 0 15px 35px rgba(30, 60, 45, 0.35), 0 5px 15px rgba(127, 183, 126, 0.35);
+            border-radius: 26px;
+            border: 2px solid rgba(255, 182, 213, 0.8);
+            box-shadow:
+                0 15px 35px rgba(200, 90, 140, 0.25),
+                0 5px 15px rgba(255, 160, 200, 0.4),
+                0 0 25px rgba(255, 200, 230, 0.5);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             width: 100%; max-width: 650px;
             backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .card::before {
+            content: "🌹";
+            position: absolute;
+            top: -16px; left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.6rem;
+            filter: drop-shadow(0 2px 4px rgba(255, 140, 190, 0.6));
         }
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 22px 45px rgba(30, 60, 45, 0.5), 0 10px 25px rgba(127, 183, 126, 0.5);
+            box-shadow:
+                0 22px 45px rgba(200, 90, 140, 0.35),
+                0 10px 25px rgba(255, 160, 200, 0.55),
+                0 0 35px rgba(255, 200, 230, 0.7);
+            border-color: rgba(255, 140, 190, 1);
         }
         .card img {
             width: 100%; aspect-ratio: 2 / 3;
-            object-fit: cover; border-radius: 14px; display: block;
+            object-fit: cover; border-radius: 18px; display: block;
+            border: 3px solid rgba(255, 210, 230, 0.9);
         }
         .card .caption {
-            margin-top: 14px; font-size: 1rem; font-style: italic;
-            color: #3e5c4a; letter-spacing: 0.5px; line-height: 1.4;
+            margin-top: 14px; font-size: 1.05rem; font-style: italic;
+            color: #b3457a; letter-spacing: 0.5px; line-height: 1.4;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(255, 200, 220, 0.6);
         }
 
         /* Responsif */
@@ -127,61 +153,48 @@
 </head>
 <body>
 
-    <!-- Efek daun & kelopak jatuh lembut -->
+    <!-- Efek bunga 🌷🌸🌹 jatuh dari atas -->
     <div class="flower-container">
-        <div class="flower">🍃</div>
-        <div class="flower">🌿</div>
-        <div class="flower">🍂</div>
-        <div class="flower">✨</div>
-        <div class="flower">🍃</div>
-        <div class="flower">🌱</div>
-        <div class="flower">✨</div>
-        <div class="flower">🌿</div>
-        <div class="flower">🍃</div>
-        <div class="flower">🍂</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌹</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌹</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌹</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌹</div>
     </div>
 
-    <!-- Marquee kata healing -->
+    <!-- Marquee kata feminin -->
     <div class="marquee-container">
-        <div class="marquee-text">DAMAI • TENANG • SYUKUR • IKHLAS • NIKMATI • DAMAI • TENANG • SYUKUR •</div>
+        <div class="marquee-text">CANTIK • MANIS • ELEGAN • PESONA • MEMIKAT • CANTIK • MANIS • ELEGAN •</div>
     </div>
 
     <!-- Judul -->
     <header>
-        <h1>Healing Space 🌿</h1>
-        <p class="subtitle">Healing <br>Gallery</p>
+        <h1>Wanita Tercantik di UH Mingle 🌸</h1>
+        <p class="subtitle">Beauty <br>Gallery</p>
     </header>
 
     <!-- Galeri -->
     <div class="gallery">
         <div class="card">
-            <img src="https://cdn.phototourl.com/anon/2026-11-21-103a8de7-5b80-4b7f-a6b1-9aae1ccc7a6f.jpg" alt="Healing moment 1">
+            <img src="https://cdn.phototourl.com/anon/2026-11-25-dda62357-7dc8-44b6-a49f-7060fa7d89f5.png" alt="Beauty moment 1">
             <div class="caption">"One"</div>
         </div>
 
         <div class="card">
-            <img src="https://cdn.phototourl.com/anon/2026-11-21-d419a222-fe12-48ac-8c44-0742be991e13.jpg" alt="Healing moment 2">
+            <img src="https://cdn.phototourl.com/anon/2026-11-25-01a7f2c6-841b-4521-a85e-9b9bbdf5c433.png" alt="Beauty moment 2">
             <div class="caption">"Two"</div>
         </div>
 
         <div class="card">
-            <img src="https://cdn.phototourl.com/anon/2026-11-21-b8faaf9e-c1fc-4230-96a6-7924a1b5befa.jpg" alt="Healing moment 3">
+            <img src="https://cdn.phototourl.com/anon/2026-11-25-925034c5-fad8-48bb-a3cf-4434c5bbcc68.png" alt="Beauty moment 3">
             <div class="caption">"Three"</div>
-        </div>
-
-        <div class="card">
-            <img src="https://cdn.phototourl.com/anon/2026-11-21-f97d233c-bfef-4073-a816-abac77b67c3f.jpg" alt="Healing moment 4">
-            <div class="caption">"Four"</div>
-        </div>
-
-        <div class="card">
-            <img src="https://cdn.phototourl.com/anon/2026-11-21-99c35d43-c50d-40a8-8c4e-7d3503502bb3.jpg" alt="Healing moment 5">
-            <div class="caption">"Five"</div>
-        </div>
-
-        <div class="card">
-            <img src="https://cdn.phototourl.com/anon/2026-11-21-d2f277d4-0df6-4bff-8b7d-fa83b439503b.jpg" alt="Healing moment 6">
-            <div class="caption">"Six"</div>
         </div>
     </div>
 
